@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18 Karat Nails | Services & Pricing</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0a0a0a;
+            color: #f0f0f0;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Elsie', serif;
+            font-weight: 900;
+            color: #d4af37;
+        }
+        
+        .navbar {
+            background-color: #0a0a0a;
+            border-bottom: 2px solid #d4af37;
+            padding: 1rem 0;
+        }
+        
+        .navbar-brand {
+            font-family: 'Elsie', serif;
+            font-weight: 900;
+            font-size: 1.8rem;
+            color: #d4af37 !important;
+        }
+        
+        .nav-link {
+            color: #f0f0f0 !important;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #d4af37 !important;
+        }
+        
+        .nav-link.active {
+            color: #d4af37 !important;
+            border-bottom: 2px solid #d4af37;
+        }
+        
+        .pricing-card {
+            background-color: #1a1a1a;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 1px solid #d4af37;
+            transition: transform 0.3s ease;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-name {
+            font-family: 'Elsie', serif;
+            font-size: 1.5rem;
+            color: #d4af37;
+            margin-bottom: 10px;
+        }
+        
+        .service-price {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #d4af37;
+        }
+        
+        .service-desc {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            background-color: #0a0a0a;
+            border-top: 1px solid #d4af37;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        footer p {
+            margin: 0;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">18 Karat Nails</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="background-color: #d4af37; border-radius: 3px;"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="booking.html">Book</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="testimonials.html">Reviews</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <h1 class="text-center mb-5">Our Services</h1>
+        <p class="text-center mb-5">Luxury nail services at an affordable price. All services include premium products and sanitation.</p>
+
+        <div class="row">
+            <!-- Service 1 -->
+            <div class="col-md-6">
+                <div class="pricing-card">
+                    <h3 class="service-name">BIAB (Builder Gel)</h3>
+                    <p class="service-desc">Natural-looking nail enhancement that strengthens and protects your natural nails. Perfect for brittle or short nails.</p>
+                    <p class="service-price">KES 3,500</p>
+                    <small class="service-desc">Includes cuticle care + shaping</small>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="col-md-6">
+                <div class="pricing-card">
+                    <h3 class="service-name">Gel X Extensions</h3>
+                    <p class="service-desc">Lightweight, flexible gel extensions that look and feel natural. Lasts 3-4 weeks with proper care.</p>
+                    <p class="service-price">KES 4,500</p>
+                    <small class="service-desc">Includes full set + design of choice</small>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="col-md-6">
+                <div class="pricing-card">
+                    <h3 class="service-name">Nail Art (per nail)</h3>
+                    <p class="service-desc">Custom nail art including chrome, French tips, ombre, floral designs, and 3D elements.</p>
+                    <p class="service-price">KES 300 - 800</p>
+                    <small class="service-desc">Price depends on complexity</small>
+                </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="col-md-6">
+                <div class="pricing-card">
+                    <h3 class="service-name">Luxury Pedicure</h3>
+                    <p class="service-desc">Full spa pedicure with foot soak, scrub, massage, and polish application.</p>
+                    <p class="service-price">KES 2,500</p>
+                    <small class="service-desc">Includes paraffin wax treatment</small>
+                </div>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="col-md-6">
+                <div class="pricing-card">
+                    <h3 class="service-name">Gel Manicure</h3>
+                    <p class="service-desc">Long-lasting gel polish that stays shiny for 2+ weeks. Chip-resistant formula.</p>
+                    <p class="service-price">KES 1,800</p>
+                    <small class="service-desc">Includes cuticle care + hand massage</small>
+                </div>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="col-md-6">
+                <div class="pricing-card">
+                    <h3 class="service-name">Nail Removal</h3>
+                    <p class="service-desc">Safe removal of gel, acrylic, or BIAB extensions without damaging natural nails.</p>
+                    <p class="service-price">KES 1,000</p>
+                    <small class="service-desc">Includes nail conditioning treatment</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="text-center mt-5">
+            <a href="booking.html" class="btn-gold" style="background-color: #d4af37; color: #0a0a0a; padding: 12px 30px; font-weight: 600; text-decoration: none; border-radius: 30px; display: inline-block;">Book Your Appointment →</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 18 Karat Nails | Lavington Square Mall, 3rd Floor, Nairobi | 0738336465</p>
+            <p style="font-size: 0.8rem; margin-top: 0.5rem;">Follow us: Instagram @18karatnails • TikTok @18karatnails</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
