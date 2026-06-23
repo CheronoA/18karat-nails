@@ -1,560 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Book Appointment | 18karat Nails</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18 Karat Nails | Book Appointment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background: url('Images/pink-cheetah-bg.webp') center center / cover fixed no-repeat;
+            color: #f0f0f0; 
+            min-height: 100vh;
+        }
+        h1, h2, h3 { font-family: 'Elsie', serif; font-weight: 900; color: #d4af37; }
+
+        .glass {
+            background: rgba(10, 10, 10, 0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            padding: 30px;
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #fcf9f7;
-            color: #2d2a28;
-        }
-
-        /* ===== NAVIGATION ===== */
         .navbar {
-            background: #1a1412;
-            padding: 16px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 2px solid #d4af37;
+            padding: 1rem 0;
         }
-
-        .navbar .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #c9a87c;
-            text-decoration: none;
+        .navbar-brand {
+            font-family: 'Elsie', serif;
+            font-weight: 900;
+            font-size: 1.8rem;
+            color: #d4af37 !important;
         }
-
-        .navbar .logo span {
-            color: #fff;
-        }
-
-        .navbar .nav-links {
-            display: flex;
-            gap: 28px;
-            list-style: none;
-        }
-
-        .navbar .nav-links a {
-            color: #e0d6ce;
-            text-decoration: none;
-            font-size: 0.9rem;
+        .nav-link {
+            color: #f0f0f0 !important;
             font-weight: 500;
             transition: color 0.3s ease;
-            padding: 4px 0;
-            border-bottom: 2px solid transparent;
+        }
+        .nav-link:hover { color: #d4af37 !important; }
+        .nav-link.active {
+            color: #d4af37 !important;
+            border-bottom: 2px solid #d4af37;
         }
 
-        .navbar .nav-links a:hover,
-        .navbar .nav-links a.active {
-            color: #c9a87c;
-            border-bottom-color: #c9a87c;
+        .form-control {
+            background: rgba(10, 10, 10, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: #f0f0f0;
+            padding: 12px;
         }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            background: none;
-            border: none;
+        .form-control:focus {
+            border-color: #d4af37;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
         }
-
-        .hamburger span {
-            width: 28px;
-            height: 2px;
-            background: #fff;
-            transition: 0.3s;
-        }
-
-        /* ===== HERO SECTION ===== */
-        .booking-hero {
-            background: linear-gradient(135deg, #1a1412 0%, #2d2a28 100%);
-            padding: 60px 20px 50px;
-            text-align: center;
-            color: #fff;
-        }
-
-        .booking-hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: #c9a87c;
-            margin-bottom: 10px;
-        }
-
-        .booking-hero p {
-            font-size: 1.1rem;
-            color: #e0d6ce;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* ===== BOOKING FORM ===== */
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .booking-form {
-            background: #ffffff;
-            border-radius: 24px;
-            padding: 40px;
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
-        }
-
-        .booking-form .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .booking-form .form-group {
-            margin-bottom: 20px;
-        }
-
-        .booking-form .form-group.full-width {
-            grid-column: 1 / -1;
-        }
-
-        .booking-form label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #1a1412;
-            margin-bottom: 6px;
-        }
-
-        .booking-form label .required {
-            color: #c9a87c;
-            margin-left: 2px;
-        }
-
-        .booking-form input,
-        .booking-form select,
-        .booking-form textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1.5px solid #e0d6ce;
-            border-radius: 12px;
-            font-size: 0.95rem;
-            font-family: 'Inter', sans-serif;
-            background: #fcf9f7;
-            transition: border-color 0.3s ease;
-            color: #2d2a28;
-        }
-
-        .booking-form input:focus,
-        .booking-form select:focus,
-        .booking-form textarea:focus {
-            outline: none;
-            border-color: #c9a87c;
-            box-shadow: 0 0 0 3px rgba(201, 168, 124, 0.15);
-        }
-
-        .booking-form textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        /* ===== SERVICE SELECTION (Cards) ===== */
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 12px;
-            margin-top: 8px;
-        }
-
-        .service-option {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 16px;
-            border: 2px solid #e0d6ce;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: #fcf9f7;
-        }
-
-        .service-option:hover {
-            border-color: #c9a87c;
-        }
-
-        .service-option.selected {
-            border-color: #c9a87c;
-            background: #f6f0ea;
-        }
-
-        .service-option input[type="radio"] {
-            display: none;
-        }
-
-        .service-option .service-icon {
-            font-size: 1.4rem;
-        }
-
-        .service-option .service-name {
-            font-size: 0.85rem;
+        .form-label {
+            color: #d4af37;
             font-weight: 500;
-            color: #1a1412;
         }
+        .form-control::placeholder { color: #666; }
 
-        .service-option .service-price {
-            font-size: 0.75rem;
-            color: #8f847c;
-            margin-left: auto;
-        }
-
-        /* ===== SUBMIT BUTTON ===== */
-        .btn-submit {
-            width: 100%;
-            padding: 16px;
-            background: #c9a87c;
-            color: #fff;
-            border: none;
-            border-radius: 14px;
-            font-size: 1.1rem;
+        .btn-gold {
+            background-color: #d4af37;
+            color: #0a0a0a;
+            padding: 12px 35px;
             font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            font-family: 'Inter', sans-serif;
-            margin-top: 10px;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+            width: 100%;
+        }
+        .btn-gold:hover {
+            background-color: #b8960c;
+            color: #0a0a0a;
+            transform: scale(1.02);
         }
 
-        .btn-submit:hover {
-            background: #b89568;
-        }
-
-        /* ===== SUCCESS MESSAGE ===== */
-        .success-message {
-            display: none;
+        .policy-card {
+            background: rgba(26, 26, 26, 0.85);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
             text-align: center;
-            padding: 40px;
-            background: #f6f0ea;
-            border-radius: 24px;
+            height: 100%;
+            transition: all 0.3s ease;
         }
+        .policy-card:hover { border-color: #d4af37; }
+        .policy-card h4 { color: #d4af37; font-size: 1.1rem; }
+        .policy-card p { color: #ccc; font-size: 0.9rem; margin: 0; }
 
-        .success-message .checkmark {
-            font-size: 4rem;
-            margin-bottom: 15px;
-        }
-
-        .success-message h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: #1a1412;
-            margin-bottom: 10px;
-        }
-
-        .success-message p {
-            color: #6b625c;
-            font-size: 1rem;
-        }
-
-        /* ===== FOOTER ===== */
-        .footer-credit {
-            text-align: center;
-            padding: 30px 20px;
-            border-top: 1px solid #eee;
+        .error-message {
+            color: #ff6b6b;
             font-size: 0.85rem;
-            color: #8f847c;
+            display: none;
+            margin-top: 5px;
         }
+        .error-message.show { display: block; }
+        .form-control.error { border-color: #ff6b6b; }
 
-        /* ===== RESPONSIVE ===== */
+        .section-title {
+            text-align: center;
+            margin: 50px 0 30px;
+        }
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #fff;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+        }
+        .section-title p { color: #ddd; font-size: 1rem; }
+
+        footer {
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: 1px solid #d4af37;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        footer p { margin: 0; color: #ccc; }
+
         @media (max-width: 768px) {
-            .navbar {
-                padding: 14px 20px;
-                flex-wrap: wrap;
-            }
-
-            .navbar .nav-links {
-                display: none;
-                width: 100%;
-                flex-direction: column;
-                gap: 10px;
-                padding-top: 12px;
-                text-align: center;
-            }
-
-            .navbar .nav-links.open {
-                display: flex;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .booking-hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .booking-form {
-                padding: 24px;
-            }
-
-            .booking-form .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .service-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .service-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .booking-hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .booking-form {
-                padding: 18px;
-            }
+            .section-title h2 { font-size: 2rem; }
+            .glass { padding: 20px; }
         }
     </style>
 </head>
-
 <body>
 
-    <!-- ===== NAVIGATION ===== -->
-    <nav class="navbar">
-        <a href="index.html" class="logo">18<span>karat</span> Nails</a>
-        <button class="hamburger" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="booking.html" class="active">Book Now</a></li>
-        </ul>
-    </nav>
-
-    <!-- ===== HERO ===== -->
-    <section class="booking-hero">
-        <h1>Book Your Appointment</h1>
-        <p>Reserve your spot at 18karat Nails. We'll confirm your booking within 24 hours.</p>
-    </section>
-
-    <!-- ===== BOOKING FORM ===== -->
+    <nav class="navbar navbar-expand-lg">
     <div class="container">
-        <div class="booking-form" id="bookingFormContainer">
+        <a class="navbar-brand" href="index.html">18 Karat Nails</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon" style="background-color: #d4af37; border-radius: 3px;"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="booking.html">Book</a></li>
+                <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link" href="testimonials.html">Reviews</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-            <form id="bookingForm">
+    <div class="container my-5">
+        <div class="section-title">
+            <h2>📅 Book Your Appointment</h2>
+            <p>Reserve your spot at 18 Karat Nails. We'll confirm your booking within 24 hours.</p>
+        </div>
 
-                <!-- Name -->
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>First Name <span class="required">*</span></label>
-                        <input type="text" id="firstName" placeholder="Your first name" required />
-                    </div>
-                    <div class="form-group">
-                        <label>Last Name <span class="required">*</span></label>
-                        <input type="text" id="lastName" placeholder="Your last name" required />
-                    </div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="glass">
+                    <form id="bookingForm" onsubmit="return validateForm()">
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">First Name *</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="Your first name">
+                                <div class="error-message" id="firstNameError">Please enter your first name</div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Last Name *</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="Your last name">
+                                <div class="error-message" id="lastNameError">Please enter your last name</div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Email Address *</label>
+                            <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                            <div class="error-message" id="emailError">Please enter a valid email address</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Phone Number *</label>
+                            <input type="tel" class="form-control" id="phone" placeholder="+254700000000">
+                            <div class="error-message" id="phoneError">Please enter a valid phone number</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Select Service *</label>
+                            <select class="form-control" id="service">
+                                <option value="">Select a service...</option>
+                                <option value="biab">BIAB (KES 3,500)</option>
+                                <option value="gelx">Gel X Extensions (KES 4,500)</option>
+                                <option value="nailart">Nail Art (KES 300-800)</option>
+                                <option value="pedicure">Luxury Pedicure (KES 2,500)</option>
+                                <option value="manicure">Gel Manicure (KES 1,800)</option>
+                                <option value="removal">Nail Removal (KES 1,000)</option>
+                            </select>
+                            <div class="error-message" id="serviceError">Please select a service</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Preferred Date</label>
+                                <input type="date" class="form-control" id="date">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Preferred Time</label>
+                                <select class="form-control" id="time">
+                                    <option value="">Select time</option>
+                                    <option value="7am">7:00 AM</option>
+                                    <option value="8am">8:00 AM</option>
+                                    <option value="9am">9:00 AM</option>
+                                    <option value="10am">10:00 AM</option>
+                                    <option value="11am">11:00 AM</option>
+                                    <option value="12pm">12:00 PM</option>
+                                    <option value="1pm">1:00 PM</option>
+                                    <option value="2pm">2:00 PM</option>
+                                    <option value="3pm">3:00 PM</option>
+                                    <option value="4pm">4:00 PM</option>
+                                    <option value="5pm">5:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Special Requests</label>
+                            <textarea class="form-control" id="notes" rows="3" placeholder="Any specific design ideas or requests?"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-gold">Submit Booking →</button>
+
+                    </form>
                 </div>
-
-                <!-- Email & Phone -->
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Email Address <span class="required">*</span></label>
-                        <input type="email" id="email" placeholder="you@example.com" required />
-                    </div>
-                    <div class="form-group">
-                        <label>Phone Number <span class="required">*</span></label>
-                        <input type="tel" id="phone" placeholder="+254 700 000 000" required />
-                    </div>
-                </div>
-
-                <!-- Service Selection -->
-                <div class="form-group full-width">
-                    <label>Select Service <span class="required">*</span></label>
-                    <div class="service-grid" id="serviceGrid">
-                        <label class="service-option" onclick="selectService(this)">
-                            <input type="radio" name="service" value="Chrome Nails" />
-                            <span class="service-icon">🪞</span>
-                            <span class="service-name">Chrome Nails</span>
-                            <span class="service-price">KSh 2,500+</span>
-                        </label>
-                        <label class="service-option" onclick="selectService(this)">
-                            <input type="radio" name="service" value="French Tip" />
-                            <span class="service-icon">🤍</span>
-                            <span class="service-name">French Tip</span>
-                            <span class="service-price">KSh 1,800+</span>
-                        </label>
-                        <label class="service-option" onclick="selectService(this)">
-                            <input type="radio" name="service" value="Ombre Nails" />
-                            <span class="service-icon">🌸</span>
-                            <span class="service-name">Ombre Nails</span>
-                            <span class="service-price">KSh 2,000+</span>
-                        </label>
-                        <label class="service-option" onclick="selectService(this)">
-                            <input type="radio" name="service" value="3D Art Nails" />
-                            <span class="service-icon">💎</span>
-                            <span class="service-name">3D Art Nails</span>
-                            <span class="service-price">KSh 2,800+</span>
-                        </label>
-                        <label class="service-option" onclick="selectService(this)">
-                            <input type="radio" name="service" value="Gel Extensions" />
-                            <span class="service-icon">✨</span>
-                            <span class="service-name">Gel Extensions</span>
-                            <span class="service-price">KSh 2,200+</span>
-                        </label>
-                        <label class="service-option" onclick="selectService(this)">
-                            <input type="radio" name="service" value="Full Set" />
-                            <span class="service-icon">💅</span>
-                            <span class="service-name">Full Set</span>
-                            <span class="service-price">KSh 3,000+</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Date & Time -->
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Preferred Date <span class="required">*</span></label>
-                        <input type="date" id="preferredDate" required />
-                    </div>
-                    <div class="form-group">
-                        <label>Preferred Time <span class="required">*</span></label>
-                        <select id="preferredTime" required>
-                            <option value="">Select time</option>
-                            <option value="09:00">9:00 AM</option>
-                            <option value="09:30">9:30 AM</option>
-                            <option value="10:00">10:00 AM</option>
-                            <option value="10:30">10:30 AM</option>
-                            <option value="11:00">11:00 AM</option>
-                            <option value="11:30">11:30 AM</option>
-                            <option value="12:00">12:00 PM</option>
-                            <option value="12:30">12:30 PM</option>
-                            <option value="13:00">1:00 PM</option>
-                            <option value="13:30">1:30 PM</option>
-                            <option value="14:00">2:00 PM</option>
-                            <option value="14:30">2:30 PM</option>
-                            <option value="15:00">3:00 PM</option>
-                            <option value="15:30">3:30 PM</option>
-                            <option value="16:00">4:00 PM</option>
-                            <option value="16:30">4:30 PM</option>
-                            <option value="17:00">5:00 PM</option>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- Special Requests -->
-                <div class="form-group full-width">
-                    <label>Special Requests</label>
-                    <textarea id="specialRequests" placeholder="Any specific design, allergies, or preferences..."></textarea>
-                </div>
-
-                <!-- Submit -->
-                <button type="submit" class="btn-submit">📅 Book Appointment</button>
-
-            </form>
-
-            <!-- ===== SUCCESS MESSAGE ===== -->
-            <div class="success-message" id="successMessage">
-                <div class="checkmark">✅</div>
-                <h2>Booking Confirmed!</h2>
-                <p>We've received your appointment request. We'll get back to you within 24 hours to confirm.</p>
-                <br />
-                <a href="index.html" style="color:#c9a87c; font-weight:500; text-decoration:none;">← Back to Home</a>
             </div>
+        </div>
 
+        <div class="section-title mt-5">
+            <h2>📋 Booking Policies</h2>
+            <p>Important info for a seamless experience</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 mb-3">
+                <div class="policy-card">
+                    <h4>💰 Payment</h4>
+                    <p>KES 500 non-refundable deposit required. Balance due at appointment.</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="policy-card">
+                    <h4>⏰ Rescheduling</h4>
+                    <p>Free up to 24hrs. KES 300 fee within 24hrs.</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="policy-card">
+                    <h4>🚶 Late Arrival</h4>
+                    <p>Over 15 mins late = KES 200 fee. Service may be shortened.</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="policy-card">
+                    <h4>❌ Cancellation</h4>
+                    <p>Less than 24hrs = KES 500 fee. Deposits non-refundable.</p>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- ===== FOOTER ===== -->
-    <div class="footer-credit">
-        &copy; 2026 18karat Nails &bull; Luxury Nail Studio
-    </div>
+    <footer>
+        <div class="container">
+            <p>© 2026 18 Karat Nails | Lavington Square Mall, 3rd Floor, Nairobi | 0738336465</p>
+            <p style="font-size: 0.8rem; margin-top: 0.5rem;">Follow us: Instagram @18karatnails • TikTok @18karatnails</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // ===== NAV TOGGLE =====
-        function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('open');
-        }
+        function validateForm() {
+            let isValid = true;
 
-        // ===== SERVICE SELECTION =====
-        function selectService(element) {
-            document.querySelectorAll('.service-option').forEach(el => el.classList.remove('selected'));
-            element.classList.add('selected');
-            element.querySelector('input[type="radio"]').checked = true;
-        }
-
-        // ===== FORM SUBMISSION =====
-        document.getElementById('bookingForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Get form values
             const firstName = document.getElementById('firstName').value.trim();
-            const lastName = document.getElementById('lastName').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const service = document.querySelector('input[name="service"]:checked');
-            const date = document.getElementById('preferredDate').value;
-            const time = document.getElementById('preferredTime').value;
-            const requests = document.getElementById('specialRequests').value.trim();
-
-            // Validation
-            if (!firstName || !lastName || !email || !phone || !service || !date || !time) {
-                alert('Please fill in all required fields.');
-                return;
+            if (firstName === '' || firstName.length < 2) {
+                document.getElementById('firstNameError').classList.add('show');
+                document.getElementById('firstName').classList.add('error');
+                isValid = false;
+            } else {
+                document.getElementById('firstNameError').classList.remove('show');
+                document.getElementById('firstName').classList.remove('error');
             }
 
-            // Build booking message
-            const message =
-                `Booking Request:\n\n` +
-                `Name: ${firstName} ${lastName}\n` +
-                `Email: ${email}\n` +
-                `Phone: ${phone}\n` +
-                `Service: ${service.value}\n` +
-                `Date: ${date}\n` +
-                `Time: ${time}\n` +
-                `Special Requests: ${requests || 'None'}`;
+            const lastName = document.getElementById('lastName').value.trim();
+            if (lastName === '' || lastName.length < 2) {
+                document.getElementById('lastNameError').classList.add('show');
+                document.getElementById('lastName').classList.add('error');
+                isValid = false;
+            } else {
+                document.getElementById('lastNameError').classList.remove('show');
+                document.getElementById('lastName').classList.remove('error');
+            }
 
-            // Show success
-            document.getElementById('bookingForm').style.display = 'none';
-            document.getElementById('successMessage').style.display = 'block';
+            const email = document.getElementById('email').value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById('emailError').classList.add('show');
+                document.getElementById('email').classList.add('error');
+                isValid = false;
+            } else {
+                document.getElementById('emailError').classList.remove('show');
+                document.getElementById('email').classList.remove('error');
+            }
 
-            // Log the booking (optional)
-            console.log('Booking Details:', message);
+            const phone = document.getElementById('phone').value.trim();
+            const phoneRegex = /^[0-9]{10,12}$/;
+            if (!phoneRegex.test(phone.replace(/[^0-9]/g, ''))) {
+                document.getElementById('phoneError').classList.add('show');
+                document.getElementById('phone').classList.add('error');
+                isValid = false;
+            } else {
+                document.getElementById('phoneError').classList.remove('show');
+                document.getElementById('phone').classList.remove('error');
+            }
 
-            // You can also send this to an email or backend here
-        });
+            const service = document.getElementById('service').value;
+            if (service === '') {
+                document.getElementById('serviceError').classList.add('show');
+                document.getElementById('service').classList.add('error');
+                isValid = false;
+            } else {
+                document.getElementById('serviceError').classList.remove('show');
+                document.getElementById('service').classList.remove('error');
+            }
 
-        // ===== SET MIN DATE FOR BOOKING =====
-        document.addEventListener('DOMContentLoaded', function() {
-            const today = new Date();
-            const yyyy = today.getFullYear();
-            const mm = String(today.getMonth() + 1).padStart(2, '0');
-            const dd = String(today.getDate()).padStart(2, '0');
-            document.getElementById('preferredDate').min = `${yyyy}-${mm}-${dd}`;
-        });
+            if (isValid) {
+                alert('✅ Booking submitted! We\'ll contact you within 24 hours.');
+            }
+            return false;
+        }
     </script>
-
 </body>
 </html>
