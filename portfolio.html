@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | 18karat Nails</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fcf9f7;
+            color: #2d2a28;
+        }
+
+        .navbar {
+            background: #1a1412;
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #c9a87c;
+            text-decoration: none;
+        }
+
+        .navbar .logo span {
+            color: #fff;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .navbar .nav-links a {
+            color: #e0d6ce;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .navbar .nav-links a:hover,
+        .navbar .nav-links a.active {
+            color: #c9a87c;
+            border-bottom-color: #c9a87c;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 2px;
+            background: #fff;
+            transition: 0.3s;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #1a1412;
+        }
+
+        .page-header h1 span {
+            color: #c9a87c;
+        }
+
+        .page-header p {
+            font-size: 1rem;
+            color: #6b625c;
+            max-width: 550px;
+            margin: 8px auto 0;
+        }
+
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .filter-bar button {
+            background: transparent;
+            border: 1.5px solid #e0d6ce;
+            padding: 8px 22px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #6b625c;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .filter-bar button:hover,
+        .filter-bar button.active {
+            background: #c9a87c;
+            color: #fff;
+            border-color: #c9a87c;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-card {
+            background: #ffffff;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.10);
+        }
+
+        .portfolio-card .image-wrapper {
+            position: relative;
+            overflow: hidden;
+            padding-top: 100%;
+            background: #f0ebe7;
+        }
+
+        .portfolio-card .image-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .portfolio-card:hover .image-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-card .image-wrapper .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            justify-content: center;
+        }
+
+        .portfolio-card:hover .image-wrapper .overlay {
+            opacity: 1;
+        }
+
+        .portfolio-card .image-wrapper .overlay .view-btn {
+            background: #c9a87c;
+            color: #fff;
+            border: none;
+            padding: 10px 28px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: background 0.3s ease;
+        }
+
+        .portfolio-card .image-wrapper .overlay .view-btn:hover {
+            background: #b89568;
+        }
+
+        .portfolio-card .card-body {
+            padding: 16px 20px 20px;
+        }
+
+        .portfolio-card .card-body h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1a1412;
+            margin-bottom: 4px;
+        }
+
+        .portfolio-card .card-body .badge {
+            display: inline-block;
+            font-size: 0.6rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #c9a87c;
+            background: #f6f0ea;
+            padding: 3px 14px;
+            border-radius: 30px;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #fff;
+            border-radius: 24px;
+            max-width: 650px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 35px;
+            position: relative;
+            animation: slideUp 0.4s ease;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 12px;
+            right: 18px;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #8f847c;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: #1a1412;
+        }
+
+        .modal-content img {
+            width: 100%;
+            border-radius: 16px;
+            margin-bottom: 18px;
+            max-height: 350px;
+            object-fit: cover;
+            background: #f0ebe7;
+        }
+
+        .modal-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: #1a1412;
+            margin-bottom: 4px;
+        }
+
+        .modal-content .modal-badge {
+            display: inline-block;
+            background: #f6f0ea;
+            color: #c9a87c;
+            padding: 3px 16px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 12px;
+        }
+
+        .modal-content .modal-description {
+            color: #6b625c;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .modal-content .modal-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .modal-content .modal-details .detail-item {
+            background: #f8f5f2;
+            padding: 10px 14px;
+            border-radius: 12px;
+        }
+
+        .modal-content .modal-details .detail-item .label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #8f847c;
+            font-weight: 500;
+        }
+
+        .modal-content .modal-details .detail-item .value {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #1a1412;
+            margin-top: 2px;
+        }
+
+        .modal-related {
+            margin-top: 18px;
+            padding-top: 18px;
+            border-top: 1px solid #eee;
+        }
+
+        .modal-related h4 {
+            font-size: 0.8rem;
+            color: #6b625c;
+            margin-bottom: 10px;
+        }
+
+        .modal-related .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            gap: 10px;
+        }
+
+        .modal-related .related-grid .related-item {
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .modal-related .related-grid .related-item:hover {
+            transform: scale(1.05);
+        }
+
+        .modal-related .related-grid .related-item img {
+            width: 100%;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: #f0ebe7;
+        }
+
+        .modal-related .related-grid .related-item p {
+            font-size: 0.55rem;
+            text-align: center;
+            margin-top: 4px;
+            color: #6b625c;
+        }
+
+        .footer-credit {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 1px solid #eee;
+            font-size: 0.85rem;
+            color: #8f847c;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 14px 20px;
+                flex-wrap: wrap;
+            }
+            .navbar .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 10px;
+                padding-top: 12px;
+                text-align: center;
+            }
+            .navbar .nav-links.open {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 20px;
+            }
+            .filter-bar button {
+                padding: 6px 16px;
+                font-size: 0.7rem;
+            }
+            .modal-content {
+                padding: 25px;
+            }
+            .modal-content h2 {
+                font-size: 1.3rem;
+            }
+            .modal-content .modal-details {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 12px;
+            }
+            .page-header h1 {
+                font-size: 1.6rem;
+            }
+            .portfolio-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 14px;
+            }
+            .portfolio-card .card-body h3 {
+                font-size: 0.8rem;
+            }
+            .portfolio-card .card-body .badge {
+                font-size: 0.5rem;
+                padding: 2px 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">18<span>karat</span> Nails</a>
+        <button class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio.html" class="active">Portfolio</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== MAIN ===== -->
+    <div class="container">
+
+        <header class="page-header">
+            <h1>Our <span>Portfolio</span></h1>
+            <p>Browse through some of our recent work. Each design is custom-made for our clients.</p>
+        </header>
+
+        <div class="filter-bar" id="filterBar">
+            <button class="active" data-category="All">✨ All</button>
+            <button data-category="Chrome">🪞 Chrome</button>
+            <button data-category="French Tip">🤍 French Tip</button>
+            <button data-category="Ombre">🌸 Ombre</button>
+            <button data-category="Glitter">✨ Glitter</button>
+            <button data-category="Matte">🖤 Matte</button>
+            <button data-category="3D Art">💎 3D Art</button>
+        </div>
+
+        <div class="portfolio-grid" id="portfolioGrid"></div>
+
+        <div class="footer-credit">
+            &copy; 2026 18karat Nails &bull; All designs custom-made
+        </div>
+
+    </div>
+
+    <!-- ===== MODAL ===== -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <img id="modalImage" src="" alt="Design" />
+            <h2 id="modalTitle"></h2>
+            <span class="modal-badge" id="modalBadge"></span>
+            <p class="modal-description" id="modalDescription"></p>
+            <div class="modal-details">
+                <div class="detail-item">
+                    <div class="label">Category</div>
+                    <div class="value" id="modalCategory">-</div>
+                </div>
+                <div class="detail-item">
+                    <div class="label">Price</div>
+                    <div class="value" id="modalPrice">-</div>
+                </div>
+                <div class="detail-item">
+                    <div class="label">Duration</div>
+                    <div class="value" id="modalDuration">-</div>
+                </div>
+                <div class="detail-item">
+                    <div class="label">Skill Level</div>
+                    <div class="value" id="modalSkill">-</div>
+                </div>
+            </div>
+            <div class="modal-related" id="modalRelated">
+                <h4>✨ More in this style:</h4>
+                <div class="related-grid" id="relatedGrid"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // =============================================
+        // DATA - All Designs with CORRECT Image Names
+        // =============================================
+        const designs = [{
+            id: 1,
+            title: "Aurora Chrome Nails",
+            category: "Chrome",
+            badge: "Chrome",
+            image: "Aurora Chrome Nails.jpg",
+            description: "Mesmerizing iridescent chrome that shifts colors like the Northern Lights.",
+            price: "KSh 2,800 - 3,800",
+            duration: "2 hours",
+            skill: "Advanced"
+        }, {
+            id: 2,
+            title: "Baby Blue Glitter",
+            category: "Glitter",
+            badge: "Glitter",
+            image: "Baby Blue Glitter.jpg",
+            description: "Soft baby blue with a sparkling glitter finish. Dreamy and delicate.",
+            price: "KSh 2,000 - 2,800",
+            duration: "1.5 hours",
+            skill: "Intermediate"
+        }, {
+            id: 3,
+            title: "Checkered Pattern Nails",
+            category: "3D Art",
+            badge: "3D Art",
+            image: "Checkered Pattern Nails.jpg",
+            description: "Fun and trendy checkered pattern design. Perfect for bold prints.",
+            price: "KSh 2,200 - 3,000",
+            duration: "1.5 - 2 hours",
+            skill: "Intermediate"
+        }, {
+            id: 4,
+            title: "Chrome Nails with Gold Accents",
+            category: "Chrome",
+            badge: "Trending",
+            image: "Chrome Nails with Gold Accents.jpg",
+            description: "Stunning mirror-chrome finish with delicate 18K gold foil accents.",
+            price: "KSh 2,500 - 3,500",
+            duration: "1.5 - 2 hours",
+            skill: "Advanced"
+        }, {
+            id: 5,
+            title: "Coffin Nails with Rhinestones",
+            category: "3D Art",
+            badge: "3D Art",
+            image: "Coffin Nails with Rhinestones.jpg",
+            description: "Dramatic coffin-shaped nails adorned with sparkling rhinestones.",
+            price: "KSh 3,000 - 4,500",
+            duration: "2 - 2.5 hours",
+            skill: "Expert"
+        }, {
+            id: 6,
+            title: "French Tips Gel Extensions",
+            category: "French Tip",
+            badge: "Classic",
+            image: "French Tips Gel Extensions.jpg",
+            description: "The timeless French tip design with durable gel extensions. Elegant and clean.",
+            price: "KSh 1,800 - 2,500",
+            duration: "1.5 hours",
+            skill: "Intermediate"
+        }, {
+            id: 7,
+            title: "Geometric Nail Art",
+            category: "3D Art",
+            badge: "3D Art",
+            image: "Geometric Nail Art.jpg",
+            description: "Precise geometric patterns and lines for a modern, architectural look.",
+            price: "KSh 2,500 - 3,500",
+            duration: "2 hours",
+            skill: "Advanced"
+        }, {
+            id: 8,
+            title: "Glitter Ombre Nails",
+            category: "Ombre",
+            badge: "Glitter",
+            image: "Glitter Ombre Nails.jpg",
+            description: "Sparkling glitter gradient that catches the light beautifully.",
+            price: "KSh 2,300 - 3,200",
+            duration: "1.5 - 2 hours",
+            skill: "Intermediate"
+        }, {
+            id: 9,
+            title: "Marble Nail Art",
+            category: "3D Art",
+            badge: "3D Art",
+            image: "Marble Nail Art.jpg",
+            description: "Elegant marble pattern design with intricate swirls. Each nail is unique.",
+            price: "KSh 2,800 - 3,800",
+            duration: "2 - 2.5 hours",
+            skill: "Advanced"
+        }, {
+            id: 10,
+            title: "Matte Black with Gold Foil",
+            category: "Matte",
+            badge: "Matte",
+            image: "Matte Black with Gold Foil.jpg",
+            description: "Bold matte black finish paired with luxurious gold foil accents.",
+            price: "KSh 2,200 - 3,000",
+            duration: "1.5 hours",
+            skill: "Advanced"
+        }, {
+            id: 11,
+            title: "Neon Summer Nails",
+            category: "Ombre",
+            badge: "Trending",
+            image: "Neon Summer Nails.jpg",
+            description: "Vibrant neon colors that pop! Perfect for summer festivals.",
+            price: "KSh 2,200 - 3,000",
+            duration: "1.5 hours",
+            skill: "Intermediate"
+        }, {
+            id: 12,
+            title: "Ombre Pink & White",
+            category: "Ombre",
+            badge: "Soft",
+            image: "Ombre Pink & White.jpg",
+            description: "Beautiful gradient from soft pink to pure white. A feminine and elegant look.",
+            price: "KSh 2,000 - 2,800",
+            duration: "1.5 hours",
+            skill: "Intermediate"
+        }, {
+            id: 13,
+            title: "Pearl White Minimalist",
+            category: "Glitter",
+            badge: "Soft",
+            image: "Pearl White Minimalist.jpg",
+            description: "Clean, minimalist pearl white with subtle shimmer. Simple yet elegant.",
+            price: "KSh 1,500 - 2,200",
+            duration: "1 - 1.5 hours",
+            skill: "Beginner"
+        }, {
+            id: 14,
+            title: "Rose Gold Chrome",
+            category: "Chrome",
+            badge: "Chrome",
+            image: "Rose Gold Chrome.jpg",
+            description: "Luxurious rose gold chrome finish that gives a warm, metallic glow.",
+            price: "KSh 2,500 - 3,500",
+            duration: "1.5 - 2 hours",
+            skill: "Advanced"
+        }, {
+            id: 15,
+            title: "Velvet Matte Nails",
+            category: "Matte",
+            badge: "Matte",
+            image: "Velvet Matte Nails.jpg",
+            description: "Soft, velvety matte finish with a luxurious texture. Understated yet chic.",
+            price: "KSh 2,000 - 2,800",
+            duration: "1.5 hours",
+            skill: "Intermediate"
+        }];
+
+        // =============================================
+        // IMAGE PATH - CORRECT FOR YOUR FOLDER
+        // =============================================
+        function getImagePath(filename) {
+            // Your images are in: C:\Users\kimos\Desktop\18karat-nails\Images
+            return 'Images/' + filename;
+        }
+
+        // =============================================
+        // STATE
+        // =============================================
+        let currentCategory = 'All';
+
+        // =============================================
+        // DOM REFS
+        // =============================================
+        const grid = document.getElementById('portfolioGrid');
+        const filterBar = document.getElementById('filterBar');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modalClose = document.getElementById('modalClose');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalBadge = document.getElementById('modalBadge');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalCategory = document.getElementById('modalCategory');
+        const modalPrice = document.getElementById('modalPrice');
+        const modalDuration = document.getElementById('modalDuration');
+        const modalSkill = document.getElementById('modalSkill');
+        const relatedGrid = document.getElementById('relatedGrid');
+
+        // =============================================
+        // RENDER CARDS
+        // =============================================
+        function renderCards(category) {
+            grid.innerHTML = '';
+
+            let filtered = category === 'All' ? designs : designs.filter(d => d.category === category);
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                            <div style="grid-column:1/-1; text-align:center; padding:60px 20px; color:#8f847c;">
+                                <h3 style="font-size:1.5rem; margin-bottom:10px;">No designs found</h3>
+                                <p>Try selecting a different category.</p>
+                            </div>
+                        `;
+                return;
+            }
+
+            filtered.forEach(d => {
+                const card = document.createElement('div');
+                card.className = 'portfolio-card';
+                card.innerHTML = `
+                            <div class="image-wrapper" onclick="openModal(${d.id})">
+                                <img src="${getImagePath(d.image)}" alt="${d.title}" onerror="this.src='https://via.placeholder.com/400x400/f0ebe7/c9a87c?text=Image+Not+Found'" />
+                                <div class="overlay">
+                                    <button class="view-btn">👁️ View Design</button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h3>${d.title}</h3>
+                                <span class="badge">✦ ${d.badge}</span>
+                            </div>
+                        `;
+                grid.appendChild(card);
+            });
+        }
+
+        // =============================================
+        // FILTER BUTTONS
+        // =============================================
+        filterBar.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                filterBar.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentCategory = this.dataset.category;
+                renderCards(currentCategory);
+            });
+        });
+
+        // =============================================
+        // MODAL
+        // =============================================
+        function openModal(id) {
+            const design = designs.find(d => d.id === id);
+            if (!design) return;
+
+            modalImage.src = getImagePath(design.image);
+            modalImage.alt = design.title;
+            modalImage.onerror = function() {
+                this.src = 'https://via.placeholder.com/600x400/f0ebe7/c9a87c?text=Image+Not+Found';
+            };
+            modalTitle.textContent = design.title;
+            modalBadge.textContent = `✦ ${design.badge}`;
+            modalDescription.textContent = design.description;
+            modalCategory.textContent = design.category;
+            modalPrice.textContent = design.price;
+            modalDuration.textContent = design.duration;
+            modalSkill.textContent = design.skill;
+
+            // Related designs
+            const related = designs.filter(d => d.category === design.category && d.id !== design.id);
+            if (related.length > 0) {
+                relatedGrid.innerHTML = related.map(d => `
+                            <div class="related-item" onclick="openModal(${d.id}); event.stopPropagation();">
+                                <img src="${getImagePath(d.image)}" alt="${d.title}" onerror="this.src='https://via.placeholder.com/100x80/f0ebe7/c9a87c?text=?'" />
+                                <p>${d.title.substring(0, 18)}${d.title.length > 18 ? '...' : ''}</p>
+                            </div>
+                        `).join('');
+                document.getElementById('modalRelated').style.display = 'block';
+            } else {
+                document.getElementById('modalRelated').style.display = 'none';
+            }
+
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        modalClose.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // =============================================
+        // NAV TOGGLE
+        // =============================================
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('open');
+        }
+
+        // =============================================
+        // INIT
+        // =============================================
+        renderCards('All');
+    </script>
+
+</body>
+</html>
