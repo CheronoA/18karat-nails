@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>18 Karat Nails | Book Appointment</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Poppins', sans-serif; 
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
             background: url('Images/pink-cheetah-bg.webp') center center / cover fixed no-repeat;
-            color: #f0f0f0; 
+            color: #f0f0f0;
             min-height: 100vh;
         }
-        h1, h2, h3 { font-family: 'Elsie', serif; font-weight: 900; color: #d4af37; }
 
+        h1, h2, h3 {
+            font-family: 'Elsie', serif;
+            font-weight: 900;
+            color: #d4af37;
+        }
+
+        /* ===== GLASS EFFECT ===== */
         .glass {
             background: rgba(10, 10, 10, 0.75);
             backdrop-filter: blur(8px);
@@ -25,6 +39,7 @@
             padding: 30px;
         }
 
+        /* ===== NAVBAR ===== */
         .navbar {
             background: rgba(10, 10, 10, 0.8);
             backdrop-filter: blur(10px);
@@ -32,39 +47,69 @@
             border-bottom: 2px solid #d4af37;
             padding: 1rem 0;
         }
+
         .navbar-brand {
             font-family: 'Elsie', serif;
             font-weight: 900;
             font-size: 1.8rem;
             color: #d4af37 !important;
         }
+
         .nav-link {
             color: #f0f0f0 !important;
             font-weight: 500;
             transition: color 0.3s ease;
         }
-        .nav-link:hover { color: #d4af37 !important; }
+
+        .nav-link:hover {
+            color: #d4af37 !important;
+        }
+
         .nav-link.active {
             color: #d4af37 !important;
             border-bottom: 2px solid #d4af37;
         }
 
+        /* ===== FORM STYLES ===== */
         .form-control {
             background: rgba(10, 10, 10, 0.8);
             border: 1px solid rgba(212, 175, 55, 0.3);
             color: #f0f0f0;
             padding: 12px;
+            border-radius: 10px;
         }
+
         .form-control:focus {
             border-color: #d4af37;
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
         }
+
+        .form-control::placeholder {
+            color: #888;
+        }
+
         .form-label {
             color: #d4af37;
             font-weight: 500;
         }
-        .form-control::placeholder { color: #666; }
 
+        /* ===== ERROR MESSAGES ===== */
+        .error-message {
+            color: #ff6b6b;
+            font-size: 0.85rem;
+            display: none;
+            margin-top: 5px;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .form-control.error {
+            border-color: #ff6b6b;
+        }
+
+        /* ===== BUTTONS ===== */
         .btn-gold {
             background-color: #d4af37;
             color: #0a0a0a;
@@ -77,12 +122,14 @@
             border: none;
             width: 100%;
         }
+
         .btn-gold:hover {
             background-color: #b8960c;
             color: #0a0a0a;
             transform: scale(1.02);
         }
 
+        /* ===== POLICY CARDS ===== */
         .policy-card {
             background: rgba(26, 26, 26, 0.85);
             backdrop-filter: blur(5px);
@@ -94,30 +141,40 @@
             height: 100%;
             transition: all 0.3s ease;
         }
-        .policy-card:hover { border-color: #d4af37; }
-        .policy-card h4 { color: #d4af37; font-size: 1.1rem; }
-        .policy-card p { color: #ccc; font-size: 0.9rem; margin: 0; }
 
-        .error-message {
-            color: #ff6b6b;
-            font-size: 0.85rem;
-            display: none;
-            margin-top: 5px;
+        .policy-card:hover {
+            border-color: #d4af37;
         }
-        .error-message.show { display: block; }
-        .form-control.error { border-color: #ff6b6b; }
 
+        .policy-card h4 {
+            color: #d4af37;
+            font-size: 1.1rem;
+        }
+
+        .policy-card p {
+            color: #ccc;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* ===== SECTION TITLE ===== */
         .section-title {
             text-align: center;
             margin: 50px 0 30px;
         }
+
         .section-title h2 {
             font-size: 2.5rem;
             color: #fff;
             text-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
         }
-        .section-title p { color: #ddd; font-size: 1rem; }
 
+        .section-title p {
+            color: #ddd;
+            font-size: 1rem;
+        }
+
+        /* ===== FOOTER ===== */
         footer {
             background: rgba(10, 10, 10, 0.8);
             backdrop-filter: blur(10px);
@@ -127,38 +184,50 @@
             padding: 2rem;
             margin-top: 3rem;
         }
-        footer p { margin: 0; color: #ccc; }
 
+        footer p {
+            margin: 0;
+            color: #ccc;
+        }
+
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .section-title h2 { font-size: 2rem; }
-            .glass { padding: 20px; }
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            .glass {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- ===== NAVBAR ===== -->
     <nav class="navbar navbar-expand-lg">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">18 Karat Nails</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon" style="background-color: #d4af37; border-radius: 3px;"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="booking.html">Book</a></li>
-                <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-                <li class="nav-item"><a class="nav-link" href="testimonials.html">Reviews</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-            </ul>
+        <div class="container">
+            <a class="navbar-brand" href="index.html">18 Karat Nails</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="background-color: #d4af37; border-radius: 3px;"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="booking.html">Book</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="testimonials.html">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
+    <!-- ===== MAIN CONTENT ===== -->
     <div class="container my-5">
+
         <div class="section-title">
             <h2>📅 Book Your Appointment</h2>
             <p>Reserve your spot at 18 Karat Nails. We'll confirm your booking within 24 hours.</p>
@@ -166,34 +235,40 @@
 
         <div class="row">
             <div class="col-lg-8 mx-auto">
+
                 <div class="glass">
+
                     <form id="bookingForm" onsubmit="return validateForm()">
 
+                        <!-- First & Last Name -->
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">First Name *</label>
-                                <input type="text" class="form-control" id="firstName" placeholder="Your first name">
+                                <input type="text" class="form-control" id="firstName" placeholder="Your first name" />
                                 <div class="error-message" id="firstNameError">Please enter your first name</div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Last Name *</label>
-                                <input type="text" class="form-control" id="lastName" placeholder="Your last name">
+                                <input type="text" class="form-control" id="lastName" placeholder="Your last name" />
                                 <div class="error-message" id="lastNameError">Please enter your last name</div>
                             </div>
                         </div>
 
+                        <!-- Email -->
                         <div class="mb-3">
                             <label class="form-label">Email Address *</label>
-                            <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                            <input type="email" class="form-control" id="email" placeholder="you@example.com" />
                             <div class="error-message" id="emailError">Please enter a valid email address</div>
                         </div>
 
+                        <!-- Phone -->
                         <div class="mb-3">
                             <label class="form-label">Phone Number *</label>
-                            <input type="tel" class="form-control" id="phone" placeholder="+254700000000">
+                            <input type="tel" class="form-control" id="phone" placeholder="+254700000000" />
                             <div class="error-message" id="phoneError">Please enter a valid phone number</div>
                         </div>
 
+                        <!-- Service -->
                         <div class="mb-3">
                             <label class="form-label">Select Service *</label>
                             <select class="form-control" id="service">
@@ -208,10 +283,11 @@
                             <div class="error-message" id="serviceError">Please select a service</div>
                         </div>
 
+                        <!-- Date & Time -->
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Preferred Date</label>
-                                <input type="date" class="form-control" id="date">
+                                <input type="date" class="form-control" id="date" />
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Preferred Time</label>
@@ -232,18 +308,23 @@
                             </div>
                         </div>
 
+                        <!-- Special Requests -->
                         <div class="mb-3">
                             <label class="form-label">Special Requests</label>
                             <textarea class="form-control" id="notes" rows="3" placeholder="Any specific design ideas or requests?"></textarea>
                         </div>
 
+                        <!-- Submit -->
                         <button type="submit" class="btn-gold">Submit Booking →</button>
 
                     </form>
+
                 </div>
+
             </div>
         </div>
 
+        <!-- ===== BOOKING POLICIES ===== -->
         <div class="section-title mt-5">
             <h2>📋 Booking Policies</h2>
             <p>Important info for a seamless experience</p>
@@ -275,8 +356,10 @@
                 </div>
             </div>
         </div>
+
     </div>
 
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
             <p>© 2026 18 Karat Nails | Lavington Square Mall, 3rd Floor, Nairobi | 0738336465</p>
@@ -284,12 +367,16 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- ===== BOOTSTRAP JS ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+    </script>
 
+    <!-- ===== FORM VALIDATION JAVASCRIPT ===== -->
     <script>
         function validateForm() {
             let isValid = true;
 
+            // ===== FIRST NAME =====
             const firstName = document.getElementById('firstName').value.trim();
             if (firstName === '' || firstName.length < 2) {
                 document.getElementById('firstNameError').classList.add('show');
@@ -300,6 +387,7 @@
                 document.getElementById('firstName').classList.remove('error');
             }
 
+            // ===== LAST NAME =====
             const lastName = document.getElementById('lastName').value.trim();
             if (lastName === '' || lastName.length < 2) {
                 document.getElementById('lastNameError').classList.add('show');
@@ -310,6 +398,7 @@
                 document.getElementById('lastName').classList.remove('error');
             }
 
+            // ===== EMAIL =====
             const email = document.getElementById('email').value.trim();
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
@@ -321,6 +410,7 @@
                 document.getElementById('email').classList.remove('error');
             }
 
+            // ===== PHONE =====
             const phone = document.getElementById('phone').value.trim();
             const phoneRegex = /^[0-9]{10,12}$/;
             if (!phoneRegex.test(phone.replace(/[^0-9]/g, ''))) {
@@ -332,6 +422,7 @@
                 document.getElementById('phone').classList.remove('error');
             }
 
+            // ===== SERVICE =====
             const service = document.getElementById('service').value;
             if (service === '') {
                 document.getElementById('serviceError').classList.add('show');
@@ -342,11 +433,14 @@
                 document.getElementById('service').classList.remove('error');
             }
 
+            // ===== SUCCESS MESSAGE =====
             if (isValid) {
                 alert('✅ Booking submitted! We\'ll contact you within 24 hours.');
             }
-            return false;
+
+            return false; // Prevent actual form submission
         }
     </script>
+
 </body>
 </html>
