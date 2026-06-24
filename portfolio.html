@@ -129,139 +129,10 @@
         }
         footer p { margin: 0; color: #ccc; }
 
-        /* Modal Styles */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(8px);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        .modal-overlay.active { display: flex; }
-
-        .modal-content {
-            background: #1a1a1a;
-            border-radius: 24px;
-            max-width: 600px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            padding: 35px;
-            position: relative;
-            border: 1px solid #d4af37;
-            animation: slideUp 0.3s ease;
-        }
-        .modal-content img {
-            width: 100%;
-            border-radius: 16px;
-            margin-bottom: 18px;
-            max-height: 350px;
-            object-fit: cover;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-        }
-        .modal-content h2 { color: #d4af37; }
-        .modal-content p { color: #ccc; line-height: 1.7; }
-
-        .modal-close {
-            position: absolute;
-            top: 12px;
-            right: 18px;
-            font-size: 2rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: #d4af37;
-            transition: transform 0.3s ease;
-        }
-        .modal-close:hover { transform: rotate(90deg); }
-
-        .modal-details {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin: 15px 0;
-        }
-        .modal-details .detail-item {
-            background: rgba(26, 26, 26, 0.8);
-            padding: 10px 14px;
-            border-radius: 12px;
-            border: 1px solid rgba(212, 175, 55, 0.15);
-        }
-        .modal-details .detail-item .label {
-            font-size: 0.6rem;
-            text-transform: uppercase;
-            color: #888;
-            font-weight: 500;
-        }
-        .modal-details .detail-item .value {
-            color: #d4af37;
-            font-weight: 500;
-            margin-top: 2px;
-        }
-
-        .modal-badge {
-            display: inline-block;
-            background: rgba(212, 175, 55, 0.15);
-            color: #d4af37;
-            padding: 3px 16px;
-            border-radius: 30px;
-            font-size: 0.7rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 12px;
-        }
-
-        .modal-related {
-            margin-top: 18px;
-            padding-top: 18px;
-            border-top: 1px solid rgba(212, 175, 55, 0.15);
-        }
-        .modal-related h4 { color: #d4af37; font-size: 0.9rem; margin-bottom: 10px; }
-        .modal-related .related-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-            gap: 10px;
-        }
-        .modal-related .related-grid .related-item {
-            border-radius: 12px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            text-align: center;
-        }
-        .modal-related .related-grid .related-item:hover { transform: scale(1.05); }
-        .modal-related .related-grid .related-item img {
-            width: 100%;
-            height: 70px;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 1px solid rgba(212, 175, 55, 0.15);
-        }
-        .modal-related .related-grid .related-item p {
-            font-size: 0.55rem;
-            color: #888;
-            margin-top: 4px;
-        }
-
-        @keyframes slideUp {
-            from { transform: translateY(40px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
         @media (max-width: 768px) {
             .section-title h2 { font-size: 2rem; }
             .glass { padding: 20px; }
             .gallery-img { height: 200px; }
-            .modal-content { padding: 25px; }
-            .modal-details { grid-template-columns: 1fr; }
         }
         @media (max-width: 480px) {
             .gallery-img { height: 160px; }
@@ -271,46 +142,46 @@
 </head>
 <body>
 
-    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">18 Karat Nails</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon" style="background-color: #d4af37; border-radius: 3px;"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="booking.html">Book</a></li>
-                <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-                <li class="nav-item"><a class="nav-link" href="testimonials.html">Reviews</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-            </ul>
+        <div class="container">
+            <a class="navbar-brand" href="index.html">18 Karat Nails</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="background-color: #d4af37; border-radius: 3px;"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="booking.html">Book</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="testimonials.html">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-    <!-- MAIN CONTENT -->
     <div class="container my-5">
         <div class="section-title">
             <h2>📸 Our Portfolio</h2>
             <p>Browse through some of our recent work. Each design is custom-made for our clients.</p>
         </div>
 
-        <div class="text-center mb-4">
-            <button class="filter-btn active" data-category="All">All</button>
-            <button class="filter-btn" data-category="Chrome">Chrome</button>
-            <button class="filter-btn" data-category="French Tip">French Tip</button>
-            <button class="filter-btn" data-category="Ombre">Ombre</button>
-            <button class="filter-btn" data-category="Glitter">Glitter</button>
-            <button class="filter-btn" data-category="Matte">Matte</button>
-            <button class="filter-btn" data-category="3D Art">3D Art</button>
+        <!-- FILTER BUTTONS -->
+        <div class="text-center mb-4" id="filterButtons">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="chrome">Chrome</button>
+            <button class="filter-btn" data-category="french">French Tip</button>
+            <button class="filter-btn" data-category="ombre">Ombre</button>
+            <button class="filter-btn" data-category="glitter">Glitter</button>
+            <button class="filter-btn" data-category="matte">Matte</button>
+            <button class="filter-btn" data-category="3dart">3D Art</button>
         </div>
 
-        <div class="row" id="portfolioGrid">
+        <!-- GALLERY GRID -->
+        <div class="row" id="galleryGrid">
             <!-- Images will be loaded by JavaScript -->
         </div>
 
@@ -319,40 +190,6 @@
         </div>
     </div>
 
-    <!-- MODAL -->
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal-content">
-            <button class="modal-close" id="modalClose">&times;</button>
-            <img id="modalImage" src="" alt="Design" />
-            <h2 id="modalTitle"></h2>
-            <span class="modal-badge" id="modalBadge"></span>
-            <p id="modalDescription"></p>
-            <div class="modal-details">
-                <div class="detail-item">
-                    <div class="label">Category</div>
-                    <div class="value" id="modalCategory">-</div>
-                </div>
-                <div class="detail-item">
-                    <div class="label">Price</div>
-                    <div class="value" id="modalPrice">-</div>
-                </div>
-                <div class="detail-item">
-                    <div class="label">Duration</div>
-                    <div class="value" id="modalDuration">-</div>
-                </div>
-                <div class="detail-item">
-                    <div class="label">Skill Level</div>
-                    <div class="value" id="modalSkill">-</div>
-                </div>
-            </div>
-            <div class="modal-related" id="modalRelated">
-                <h4>More in this style:</h4>
-                <div class="related-grid" id="relatedGrid"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- FOOTER -->
     <footer>
         <div class="container">
             <p>© 2026 18 Karat Nails | Lavington Square Mall, 3rd Floor, Nairobi | 0738336465</p>
@@ -362,161 +199,28 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- ===== FILTERABLE GALLERY JAVASCRIPT ===== -->
     <script>
         // =============================================
-        // DATA - All Designs with Image Names
+        // DATA - All Designs
         // =============================================
-        const designs = [{
-            id: 1,
-            title: "Aurora Chrome Nails",
-            category: "Chrome",
-            badge: "Chrome",
-            image: "Aurora Chrome Nails.jpg",
-            description: "Mesmerizing iridescent chrome that shifts colors like the Northern Lights.",
-            price: "KES 2,800 - 3,800",
-            duration: "2 hours",
-            skill: "Advanced"
-        }, {
-            id: 2,
-            title: "Baby Blue Glitter",
-            category: "Glitter",
-            badge: "Glitter",
-            image: "Baby Blue Glitter.jpg",
-            description: "Soft baby blue with a sparkling glitter finish. Dreamy and delicate.",
-            price: "KES 2,000 - 2,800",
-            duration: "1.5 hours",
-            skill: "Intermediate"
-        }, {
-            id: 3,
-            title: "Checkered Pattern Nails",
-            category: "3D Art",
-            badge: "3D Art",
-            image: "Checkered Pattern Nails.jpg",
-            description: "Fun and trendy checkered pattern design. Perfect for bold prints.",
-            price: "KES 2,200 - 3,000",
-            duration: "1.5 - 2 hours",
-            skill: "Intermediate"
-        }, {
-            id: 4,
-            title: "Chrome Nails with Gold Accents",
-            category: "Chrome",
-            badge: "Trending",
-            image: "Chrome Nails with Gold Accents.jpg",
-            description: "Stunning mirror-chrome finish with delicate 18K gold foil accents.",
-            price: "KES 2,500 - 3,500",
-            duration: "1.5 - 2 hours",
-            skill: "Advanced"
-        }, {
-            id: 5,
-            title: "Coffin Nails with Rhinestones",
-            category: "3D Art",
-            badge: "3D Art",
-            image: "Coffin Nails with Rhinestones.jpg",
-            description: "Dramatic coffin-shaped nails adorned with sparkling rhinestones.",
-            price: "KES 3,000 - 4,500",
-            duration: "2 - 2.5 hours",
-            skill: "Expert"
-        }, {
-            id: 6,
-            title: "French Tips Gel Extensions",
-            category: "French Tip",
-            badge: "Classic",
-            image: "French Tips Gel Extensions.jpg",
-            description: "The timeless French tip design with durable gel extensions. Elegant and clean.",
-            price: "KES 1,800 - 2,500",
-            duration: "1.5 hours",
-            skill: "Intermediate"
-        }, {
-            id: 7,
-            title: "Geometric Nail Art",
-            category: "3D Art",
-            badge: "3D Art",
-            image: "Geometric Nail Art.jpg",
-            description: "Precise geometric patterns and lines for a modern, architectural look.",
-            price: "KES 2,500 - 3,500",
-            duration: "2 hours",
-            skill: "Advanced"
-        }, {
-            id: 8,
-            title: "Glitter Ombre Nails",
-            category: "Ombre",
-            badge: "Glitter",
-            image: "Glitter Ombre Nails.jpg",
-            description: "Sparkling glitter gradient that catches the light beautifully.",
-            price: "KES 2,300 - 3,200",
-            duration: "1.5 - 2 hours",
-            skill: "Intermediate"
-        }, {
-            id: 9,
-            title: "Marble Nail Art",
-            category: "3D Art",
-            badge: "3D Art",
-            image: "Marble Nail Art.jpg",
-            description: "Elegant marble pattern design with intricate swirls. Each nail is unique.",
-            price: "KES 2,800 - 3,800",
-            duration: "2 - 2.5 hours",
-            skill: "Advanced"
-        }, {
-            id: 10,
-            title: "Matte Black with Gold Foil",
-            category: "Matte",
-            badge: "Matte",
-            image: "Matte Black with Gold Foil.jpg",
-            description: "Bold matte black finish paired with luxurious gold foil accents.",
-            price: "KES 2,200 - 3,000",
-            duration: "1.5 hours",
-            skill: "Advanced"
-        }, {
-            id: 11,
-            title: "Neon Summer Nails",
-            category: "Ombre",
-            badge: "Trending",
-            image: "Neon Summer Nails.jpg",
-            description: "Vibrant neon colors that pop! Perfect for summer festivals.",
-            price: "KES 2,200 - 3,000",
-            duration: "1.5 hours",
-            skill: "Intermediate"
-        }, {
-            id: 12,
-            title: "Ombre Pink & White",
-            category: "Ombre",
-            badge: "Soft",
-            image: "Ombre Pink & White.jpg",
-            description: "Beautiful gradient from soft pink to pure white. A feminine and elegant look.",
-            price: "KES 2,000 - 2,800",
-            duration: "1.5 hours",
-            skill: "Intermediate"
-        }, {
-            id: 13,
-            title: "Pearl White Minimalist",
-            category: "Glitter",
-            badge: "Soft",
-            image: "Pearl White Minimalist.jpg",
-            description: "Clean, minimalist pearl white with subtle shimmer. Simple yet elegant.",
-            price: "KES 1,500 - 2,200",
-            duration: "1 - 1.5 hours",
-            skill: "Beginner"
-        }, {
-            id: 14,
-            title: "Rose Gold Chrome",
-            category: "Chrome",
-            badge: "Chrome",
-            image: "Rose Gold Chrome.jpg",
-            description: "Luxurious rose gold chrome finish that gives a warm, metallic glow.",
-            price: "KES 2,500 - 3,500",
-            duration: "1.5 - 2 hours",
-            skill: "Advanced"
-        }, {
-            id: 15,
-            title: "Velvet Matte Nails",
-            category: "Matte",
-            badge: "Matte",
-            image: "Velvet Matte Nails.jpg",
-            description: "Soft, velvety matte finish with a luxurious texture. Understated yet chic.",
-            price: "KES 2,000 - 2,800",
-            duration: "1.5 hours",
-            skill: "Intermediate"
-        }];
+        const designs = [
+            { id: 1, title: "Aurora Chrome Nails", category: "chrome", image: "Aurora Chrome Nails.jpg" },
+            { id: 2, title: "Baby Blue Glitter", category: "glitter", image: "Baby Blue Glitter.jpg" },
+            { id: 3, title: "Checkered Pattern Nails", category: "3dart", image: "Checkered Pattern Nails.jpg" },
+            { id: 4, title: "Chrome Nails with Gold Accents", category: "chrome", image: "Chrome Nails with Gold Accents.jpg" },
+            { id: 5, title: "Coffin Nails with Rhinestones", category: "3dart", image: "Coffin Nails with Rhinestones.jpg" },
+            { id: 6, title: "French Tips Gel Extensions", category: "french", image: "French Tips Gel Extensions.jpg" },
+            { id: 7, title: "Geometric Nail Art", category: "3dart", image: "Geometric Nail Art.jpg" },
+            { id: 8, title: "Glitter Ombre Nails", category: "ombre", image: "Glitter Ombre Nails.jpg" },
+            { id: 9, title: "Marble Nail Art", category: "3dart", image: "Marble Nail Art.jpg" },
+            { id: 10, title: "Matte Black with Gold Foil", category: "matte", image: "Matte Black with Gold Foil.jpg" },
+            { id: 11, title: "Neon Summer Nails", category: "ombre", image: "Neon Summer Nails.jpg" },
+            { id: 12, title: "Ombre Pink & White", category: "ombre", image: "Ombre Pink & White.jpg" },
+            { id: 13, title: "Pearl White Minimalist", category: "glitter", image: "Pearl White Minimalist.jpg" },
+            { id: 14, title: "Rose Gold Chrome", category: "chrome", image: "Rose Gold Chrome.jpg" },
+            { id: 15, title: "Velvet Matte Nails", category: "matte", image: "Velvet Matte Nails.jpg" }
+        ];
 
         // =============================================
         // IMAGE PATH
@@ -528,32 +232,23 @@
         // =============================================
         // DOM REFS
         // =============================================
-        const grid = document.getElementById('portfolioGrid');
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const modalOverlay = document.getElementById('modalOverlay');
-        const modalClose = document.getElementById('modalClose');
-        const modalImage = document.getElementById('modalImage');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalBadge = document.getElementById('modalBadge');
-        const modalDescription = document.getElementById('modalDescription');
-        const modalCategory = document.getElementById('modalCategory');
-        const modalPrice = document.getElementById('modalPrice');
-        const modalDuration = document.getElementById('modalDuration');
-        const modalSkill = document.getElementById('modalSkill');
-        const relatedGrid = document.getElementById('relatedGrid');
+        const galleryGrid = document.getElementById('galleryGrid');
+        const filterButtons = document.getElementById('filterButtons');
 
-        let currentCategory = 'All';
+        let currentCategory = 'all';
 
         // =============================================
-        // RENDER CARDS
+        // RENDER GALLERY
         // =============================================
-        function renderCards(category) {
-            grid.innerHTML = '';
+        function renderGallery(category) {
+            galleryGrid.innerHTML = '';
 
-            let filtered = category === 'All' ? designs : designs.filter(d => d.category === category);
+            let filtered = category === 'all' 
+                ? designs 
+                : designs.filter(d => d.category === category);
 
             if (filtered.length === 0) {
-                grid.innerHTML = `
+                galleryGrid.innerHTML = `
                     <div class="col-12 text-center" style="padding: 60px 20px; color: #888;">
                         <h3 style="color: #d4af37; font-size: 1.5rem;">No designs found</h3>
                         <p>Try selecting a different category.</p>
@@ -566,79 +261,39 @@
                 const col = document.createElement('div');
                 col.className = 'col-md-4 gallery-item';
                 col.innerHTML = `
-                    <img src="${getImagePath(d.image)}" alt="${d.title}" class="gallery-img" onclick="openModal(${d.id})" onerror="this.src='https://via.placeholder.com/400x400/1a1a1a/d4af37?text=Image+Not+Found'" />
+                    <img src="${getImagePath(d.image)}" 
+                         alt="${d.title}" 
+                         class="gallery-img" 
+                         onerror="this.src='https://via.placeholder.com/400x400/1a1a1a/d4af37?text=Image+Not+Found'" />
                     <p class="caption">${d.title}</p>
                 `;
-                grid.appendChild(col);
+                galleryGrid.appendChild(col);
             });
         }
 
         // =============================================
-        // FILTER BUTTONS
+        // FILTER BUTTONS - JAVASCRIPT INTERACTIVITY
         // =============================================
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                currentCategory = this.dataset.category;
-                renderCards(currentCategory);
-            });
-        });
-
-        // =============================================
-        // MODAL
-        // =============================================
-        function openModal(id) {
-            const design = designs.find(d => d.id === id);
-            if (!design) return;
-
-            modalImage.src = getImagePath(design.image);
-            modalImage.alt = design.title;
-            modalImage.onerror = function() {
-                this.src = 'https://via.placeholder.com/600x400/1a1a1a/d4af37?text=Image+Not+Found';
-            };
-            modalTitle.textContent = design.title;
-            modalBadge.textContent = '✦ ' + design.badge;
-            modalDescription.textContent = design.description;
-            modalCategory.textContent = design.category;
-            modalPrice.textContent = design.price;
-            modalDuration.textContent = design.duration;
-            modalSkill.textContent = design.skill;
-
-            const related = designs.filter(d => d.category === design.category && d.id !== design.id);
-            if (related.length > 0) {
-                relatedGrid.innerHTML = related.map(d => `
-                    <div class="related-item" onclick="openModal(${d.id}); event.stopPropagation();">
-                        <img src="${getImagePath(d.image)}" alt="${d.title}" onerror="this.src='https://via.placeholder.com/100x80/1a1a1a/d4af37?text=?'" />
-                        <p>${d.title.substring(0, 15)}${d.title.length > 15 ? '...' : ''}</p>
-                    </div>
-                `).join('');
-                document.getElementById('modalRelated').style.display = 'block';
-            } else {
-                document.getElementById('modalRelated').style.display = 'none';
+        filterButtons.addEventListener('click', function(e) {
+            if (e.target.classList.contains('filter-btn')) {
+                // Remove active class from all buttons
+                filterButtons.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                e.target.classList.add('active');
+                
+                // Get category and render
+                currentCategory = e.target.dataset.category;
+                renderGallery(currentCategory);
             }
-
-            modalOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            modalOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        modalClose.addEventListener('click', closeModal);
-        modalOverlay.addEventListener('click', function(e) {
-            if (e.target === this) closeModal();
-        });
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeModal();
         });
 
         // =============================================
         // INIT
         // =============================================
-        renderCards('All');
+        renderGallery('all');
     </script>
 
 </body>
