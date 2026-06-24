@@ -157,67 +157,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-        function validateForm() {
-            let isValid = true;
-
-            const firstName = document.getElementById('firstName').value.trim();
-            if (firstName === '' || firstName.length < 2) {
-                document.getElementById('firstNameError').classList.add('show');
-                document.getElementById('firstName').classList.add('error');
-                isValid = false;
-            } else {
-                document.getElementById('firstNameError').classList.remove('show');
-                document.getElementById('firstName').classList.remove('error');
-            }
-
-            const lastName = document.getElementById('lastName').value.trim();
-            if (lastName === '' || lastName.length < 2) {
-                document.getElementById('lastNameError').classList.add('show');
-                document.getElementById('lastName').classList.add('error');
-                isValid = false;
-            } else {
-                document.getElementById('lastNameError').classList.remove('show');
-                document.getElementById('lastName').classList.remove('error');
-            }
-
-            const email = document.getElementById('email').value.trim();
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                document.getElementById('emailError').classList.add('show');
-                document.getElementById('email').classList.add('error');
-                isValid = false;
-            } else {
-                document.getElementById('emailError').classList.remove('show');
-                document.getElementById('email').classList.remove('error');
-            }
-
-            const phone = document.getElementById('phone').value.trim();
-            const phoneRegex = /^[0-9]{10,12}$/;
-            if (!phoneRegex.test(phone.replace(/[^0-9]/g, ''))) {
-                document.getElementById('phoneError').classList.add('show');
-                document.getElementById('phone').classList.add('error');
-                isValid = false;
-            } else {
-                document.getElementById('phoneError').classList.remove('show');
-                document.getElementById('phone').classList.remove('error');
-            }
-
-            const service = document.getElementById('service').value;
-            if (service === '') {
-                document.getElementById('serviceError').classList.add('show');
-                document.getElementById('service').classList.add('error');
-                isValid = false;
-            } else {
-                document.getElementById('serviceError').classList.remove('show');
-                document.getElementById('service').classList.remove('error');
-            }
-
-            if (isValid) {
-                alert('✅ Booking submitted! We\'ll contact you within 24 hours.');
-            }
-            return false;
-        }
-    </script>
+    <script src="js/validation.js"></script>
 </body>
 </html>
