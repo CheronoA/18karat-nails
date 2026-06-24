@@ -6,139 +6,7 @@
     <title>18 Karat Nails | Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Poppins', sans-serif; 
-            background: url('Images/pink-cheetah-bg.webp') center center / cover fixed no-repeat;
-            color: #f0f0f0; 
-            min-height: 100vh;
-        }
-        h1, h2, h3 { font-family: 'Elsie', serif; font-weight: 900; color: #d4af37; }
-
-        .glass {
-            background: rgba(10, 10, 10, 0.75);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 20px;
-            padding: 30px;
-        }
-
-        .navbar {
-            background: rgba(10, 10, 10, 0.8);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 2px solid #d4af37;
-            padding: 1rem 0;
-        }
-        .navbar-brand {
-            font-family: 'Elsie', serif;
-            font-weight: 900;
-            font-size: 1.8rem;
-            color: #d4af37 !important;
-        }
-        .nav-link {
-            color: #f0f0f0 !important;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        .nav-link:hover { color: #d4af37 !important; }
-        .nav-link.active {
-            color: #d4af37 !important;
-            border-bottom: 2px solid #d4af37;
-        }
-
-        .gallery-img {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-            border-radius: 12px;
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            transition: all 0.3s ease;
-            background-color: #1a1a1a;
-        }
-        .gallery-img:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
-            border-color: #d4af37;
-        }
-        .gallery-item { margin-bottom: 30px; }
-        .gallery-item .caption {
-            text-align: center;
-            margin-top: 12px;
-            color: #d4af37;
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-
-        .filter-btn {
-            background: transparent;
-            border: 2px solid #d4af37;
-            color: #d4af37;
-            padding: 8px 20px;
-            margin: 5px;
-            border-radius: 30px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            font-family: 'Poppins', sans-serif;
-        }
-        .filter-btn:hover,
-        .filter-btn.active {
-            background-color: #d4af37;
-            color: #0a0a0a;
-        }
-
-        .btn-gold {
-            background-color: #d4af37;
-            color: #0a0a0a;
-            padding: 12px 35px;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            display: inline-block;
-            border: none;
-        }
-        .btn-gold:hover {
-            background-color: #b8960c;
-            color: #0a0a0a;
-            transform: scale(1.05);
-        }
-
-        .section-title {
-            text-align: center;
-            margin: 50px 0 30px;
-        }
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: #fff;
-            text-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
-        }
-        .section-title p { color: #ddd; font-size: 1rem; }
-
-        footer {
-            background: rgba(10, 10, 10, 0.8);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-top: 1px solid #d4af37;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-        }
-        footer p { margin: 0; color: #ccc; }
-
-        @media (max-width: 768px) {
-            .section-title h2 { font-size: 2rem; }
-            .glass { padding: 20px; }
-            .gallery-img { height: 200px; }
-        }
-        @media (max-width: 480px) {
-            .gallery-img { height: 160px; }
-            .filter-btn { padding: 5px 14px; font-size: 0.7rem; }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -169,7 +37,6 @@
             <p>Browse through some of our recent work. Each design is custom-made for our clients.</p>
         </div>
 
-        <!-- FILTER BUTTONS -->
         <div class="text-center mb-4" id="filterButtons">
             <button class="filter-btn active" data-category="all">All</button>
             <button class="filter-btn" data-category="chrome">Chrome</button>
@@ -180,10 +47,7 @@
             <button class="filter-btn" data-category="3dart">3D Art</button>
         </div>
 
-        <!-- GALLERY GRID -->
-        <div class="row" id="galleryGrid">
-            <!-- Images will be loaded by JavaScript -->
-        </div>
+        <div class="row" id="galleryGrid"></div>
 
         <div class="text-center mt-4">
             <a href="booking.html" class="btn-gold">Book Your Appointment →</a>
@@ -199,11 +63,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- ===== FILTERABLE GALLERY JAVASCRIPT ===== -->
     <script>
-        // =============================================
-        // DATA - All Designs
-        // =============================================
         const designs = [
             { id: 1, title: "Aurora Chrome Nails", category: "chrome", image: "Aurora Chrome Nails.jpg" },
             { id: 2, title: "Baby Blue Glitter", category: "glitter", image: "Baby Blue Glitter.jpg" },
@@ -222,77 +82,38 @@
             { id: 15, title: "Velvet Matte Nails", category: "matte", image: "Velvet Matte Nails.jpg" }
         ];
 
-        // =============================================
-        // IMAGE PATH
-        // =============================================
         function getImagePath(filename) {
             return 'Images/' + filename;
         }
 
-        // =============================================
-        // DOM REFS
-        // =============================================
         const galleryGrid = document.getElementById('galleryGrid');
         const filterButtons = document.getElementById('filterButtons');
-
         let currentCategory = 'all';
 
-        // =============================================
-        // RENDER GALLERY
-        // =============================================
         function renderGallery(category) {
             galleryGrid.innerHTML = '';
-
-            let filtered = category === 'all' 
-                ? designs 
-                : designs.filter(d => d.category === category);
-
+            let filtered = category === 'all' ? designs : designs.filter(d => d.category === category);
             if (filtered.length === 0) {
-                galleryGrid.innerHTML = `
-                    <div class="col-12 text-center" style="padding: 60px 20px; color: #888;">
-                        <h3 style="color: #d4af37; font-size: 1.5rem;">No designs found</h3>
-                        <p>Try selecting a different category.</p>
-                    </div>
-                `;
+                galleryGrid.innerHTML = `<div class="col-12 text-center" style="padding: 60px 20px; color: #888;"><h3 style="color: #d4af37; font-size: 1.5rem;">No designs found</h3><p>Try selecting a different category.</p></div>`;
                 return;
             }
-
             filtered.forEach(d => {
                 const col = document.createElement('div');
                 col.className = 'col-md-4 gallery-item';
-                col.innerHTML = `
-                    <img src="${getImagePath(d.image)}" 
-                         alt="${d.title}" 
-                         class="gallery-img" 
-                         onerror="this.src='https://via.placeholder.com/400x400/1a1a1a/d4af37?text=Image+Not+Found'" />
-                    <p class="caption">${d.title}</p>
-                `;
+                col.innerHTML = `<img src="${getImagePath(d.image)}" alt="${d.title}" class="gallery-img" onerror="this.src='https://via.placeholder.com/400x400/1a1a1a/d4af37?text=Image+Not+Found'" /><p class="caption">${d.title}</p>`;
                 galleryGrid.appendChild(col);
             });
         }
 
-        // =============================================
-        // FILTER BUTTONS - JAVASCRIPT INTERACTIVITY
-        // =============================================
         filterButtons.addEventListener('click', function(e) {
             if (e.target.classList.contains('filter-btn')) {
-                // Remove active class from all buttons
-                filterButtons.querySelectorAll('.filter-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                
-                // Add active class to clicked button
+                filterButtons.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
                 e.target.classList.add('active');
-                
-                // Get category and render
                 currentCategory = e.target.dataset.category;
                 renderGallery(currentCategory);
             }
         });
 
-        // =============================================
-        // INIT
-        // =============================================
         renderGallery('all');
     </script>
 

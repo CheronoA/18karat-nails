@@ -6,151 +6,30 @@
     <title>18 Karat Nails | FAQ</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Poppins', sans-serif; 
-            background: url('Images/pink-cheetah-bg.webp') center center / cover fixed no-repeat;
-            color: #f0f0f0; 
-            min-height: 100vh;
-        }
-        h1, h2, h3 { font-family: 'Elsie', serif; font-weight: 900; color: #d4af37; }
-
-        .glass {
-            background: rgba(10, 10, 10, 0.75);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 20px;
-            padding: 30px;
-        }
-
-        .navbar {
-            background: rgba(10, 10, 10, 0.8);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 2px solid #d4af37;
-            padding: 1rem 0;
-        }
-        .navbar-brand {
-            font-family: 'Elsie', serif;
-            font-weight: 900;
-            font-size: 1.8rem;
-            color: #d4af37 !important;
-        }
-        .nav-link {
-            color: #f0f0f0 !important;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        .nav-link:hover { color: #d4af37 !important; }
-        .nav-link.active {
-            color: #d4af37 !important;
-            border-bottom: 2px solid #d4af37;
-        }
-
-        .faq-item {
-            background: rgba(26, 26, 26, 0.85);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            border-radius: 12px;
-            padding: 18px 22px;
-            margin-bottom: 12px;
-            border: 1px solid rgba(212, 175, 55, 0.25);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .faq-item:hover {
-            border-color: #d4af37;
-            transform: translateX(5px);
-        }
-        .faq-item h4 {
-            color: #d4af37;
-            font-size: 1.1rem;
-            margin: 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .faq-item h4 .arrow { transition: transform 0.3s ease; font-size: 1.2rem; }
-        .faq-item.open h4 .arrow { transform: rotate(180deg); }
-        .faq-item p {
-            color: #ccc;
-            margin: 12px 0 0 0;
-            display: none;
-            padding-top: 12px;
-            border-top: 1px solid rgba(212, 175, 55, 0.15);
-            line-height: 1.7;
-        }
-        .faq-item.open p { display: block; }
-
-        .btn-gold {
-            background-color: #d4af37;
-            color: #0a0a0a;
-            padding: 12px 35px;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            display: inline-block;
-            border: none;
-        }
-        .btn-gold:hover {
-            background-color: #b8960c;
-            color: #0a0a0a;
-            transform: scale(1.05);
-        }
-
-        .section-title {
-            text-align: center;
-            margin: 50px 0 30px;
-        }
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: #fff;
-            text-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
-        }
-        .section-title p { color: #ddd; font-size: 1rem; }
-
-        footer {
-            background: rgba(10, 10, 10, 0.8);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-top: 1px solid #d4af37;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-        }
-        footer p { margin: 0; color: #ccc; }
-
-        @media (max-width: 768px) {
-            .section-title h2 { font-size: 2rem; }
-            .glass { padding: 20px; }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <nav class="navbar navbar-expand-lg">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">18 Karat Nails</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon" style="background-color: #d4af37; border-radius: 3px;"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="booking.html">Book</a></li>
-                <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-                <li class="nav-item"><a class="nav-link" href="testimonials.html">Reviews</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-            </ul>
+        <div class="container">
+            <a class="navbar-brand" href="index.html">18 Karat Nails</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="background-color: #d4af37; border-radius: 3px;"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="booking.html">Book</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="faq.html">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="testimonials.html">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
     <div class="container my-5">
         <div class="section-title">
@@ -160,9 +39,7 @@
 
         <div class="row">
             <div class="col-lg-8 mx-auto">
-
                 <div class="glass">
-
                     <div class="faq-item" onclick="toggleFAQ(this)">
                         <h4>💅 How long do BIAB or Gel X extensions last? <span class="arrow">▼</span></h4>
                         <p>With proper care, BIAB and Gel X extensions typically last 3-4 weeks. We recommend booking a fill appointment every 3 weeks to maintain the look and strength of your nails.</p>
@@ -192,13 +69,11 @@
                         <h4>🚫 What if I need to cancel? <span class="arrow">▼</span></h4>
                         <p>Cancellations made less than 24 hours in advance will incur a KES 500 fee. Deposits are non-refundable in all cases.</p>
                     </div>
-
                 </div>
 
                 <div class="text-center mt-4">
                     <a href="booking.html" class="btn-gold">Book Your Appointment →</a>
                 </div>
-
             </div>
         </div>
     </div>
