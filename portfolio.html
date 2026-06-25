@@ -7,6 +7,156 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .modal-overlay.active { display: flex; }
+
+        .modal-content {
+            background: #1a1a1a;
+            border-radius: 20px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 30px;
+            position: relative;
+            border: 2px solid #d4af37;
+        }
+        .modal-content .main-image {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            max-height: 400px;
+            object-fit: contain;
+            background: #0a0a0a;
+        }
+        .modal-content h2 { color: #d4af37; font-family: 'Elsie', serif; font-weight: 900; font-size: 1.8rem; }
+        .modal-content p { color: #ccc; line-height: 1.7; }
+
+        .modal-close {
+            position: absolute;
+            top: 12px;
+            right: 18px;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #d4af37;
+        }
+        .modal-close:hover { transform: rotate(90deg); }
+
+        .modal-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .modal-details .detail-item {
+            background: rgba(26, 26, 26, 0.8);
+            padding: 10px 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .modal-details .detail-item .label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: #888;
+            font-weight: 500;
+        }
+        .modal-details .detail-item .value {
+            color: #d4af37;
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        .modal-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            color: #d4af37;
+            padding: 3px 16px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 12px;
+        }
+
+        .modal-gallery {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 8px;
+            margin: 15px 0;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        .modal-gallery .thumb {
+            width: 100%;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .modal-gallery .thumb:hover { border-color: #d4af37; }
+        .modal-gallery .thumb.active {
+            border-color: #d4af37;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .modal-related {
+            margin-top: 18px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .modal-related h4 { color: #d4af37; font-size: 0.9rem; margin-bottom: 10px; }
+        .modal-related .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 10px;
+        }
+        .modal-related .related-grid .related-item {
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .modal-related .related-grid .related-item:hover { transform: scale(1.05); }
+        .modal-related .related-grid .related-item img {
+            width: 100%;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .modal-related .related-grid .related-item p {
+            font-size: 0.55rem;
+            color: #888;
+            margin-top: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content { padding: 20px; }
+            .modal-gallery { grid-template-columns: repeat(3, 1fr); }
+            .modal-details { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 
@@ -36,21 +186,30 @@
             <h2>📸 Our Portfolio</h2>
             <p>Browse through some of our recent work. Each design is custom-made for our clients.</p>
         </div>
-
-        <div class="text-center mb-4" id="filterButtons">
-            <button class="filter-btn active" data-category="all">All</button>
-            <button class="filter-btn" data-category="chrome">Chrome</button>
-            <button class="filter-btn" data-category="french">French Tip</button>
-            <button class="filter-btn" data-category="ombre">Ombre</button>
-            <button class="filter-btn" data-category="glitter">Glitter</button>
-            <button class="filter-btn" data-category="matte">Matte</button>
-            <button class="filter-btn" data-category="3dart">3D Art</button>
-        </div>
-
         <div class="row" id="galleryGrid"></div>
-
         <div class="text-center mt-4">
             <a href="booking.html" class="btn-gold">Book Your Appointment →</a>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <img class="main-image" id="modalImage" src="" alt="Design" />
+            <h2 id="modalTitle"></h2>
+            <span class="modal-badge" id="modalBadge"></span>
+            <p id="modalDescription"></p>
+            <div class="modal-details">
+                <div class="detail-item"><div class="label">Category</div><div class="value" id="modalCategory">-</div></div>
+                <div class="detail-item"><div class="label">Price</div><div class="value" id="modalPrice">-</div></div>
+                <div class="detail-item"><div class="label">Duration</div><div class="value" id="modalDuration">-</div></div>
+                <div class="detail-item"><div class="label">Skill Level</div><div class="value" id="modalSkill">-</div></div>
+            </div>
+            <div class="modal-gallery" id="modalGallery"></div>
+            <div class="modal-related" id="modalRelated">
+                <h4>✨ More in this style:</h4>
+                <div class="related-grid" id="relatedGrid"></div>
+            </div>
         </div>
     </div>
 
@@ -59,17 +218,390 @@
             <p>© 2026 18 Karat Nails | Lavington Square Mall, 3rd Floor, Nairobi | 0738336465</p>
             <p style="font-size: 0.8rem; margin-top: 0.5rem;">Follow us: Instagram @18karatnails • TikTok @18karatnails</p>
         </div>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb" style="background: rgba(26,26,26,0.5); padding: 10px 15px; border-radius: 10px; border: 1px solid rgba(212,175,55,0.15);">
-        <li class="breadcrumb-item"><a href="index.html" style="color: #d4af37; text-decoration: none;">Home</a></li>
-        <li class="breadcrumb-item active" style="color: #888;" aria-current="page">Portfolio</li>
-            </ol>
-        </nav>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="js/gallery.js"></script>
+    <script>
+        // =============================================
+        // DATA - EXACT FILENAMES FROM YOUR FOLDER
+        // =============================================
+        const designs = [{
+            id: 1,
+            title: "Aurora Chrome Nails",
+            category: "chrome",
+            badge: "Chrome",
+            description: "Mesmerizing iridescent chrome that shifts colors like the Northern Lights. A true showstopper.",
+            price: "KES 2,800 - 3,800",
+            duration: "2 hours",
+            skill: "Advanced",
+            images: [
+                "Aurora Chrome Nails-1.webp",
+                "Aurora Chrome Nails-2.webp",
+                "Aurora Chrome Nails-3.jpg",
+                "Aurora Chrome Nails-4.jpg",
+                "Aurora Chrome Nails-5.jpg",
+                "Aurora Chrome Nails-6.webp"
+            ]
+        }, {
+            id: 2,
+            title: "3D Chrome Accents Nails",
+            category: "chrome",
+            badge: "Trending",
+            description: "Molten chrome with 3D sculpted accents. Pure luxury and elegance.",
+            price: "KES 3,000 - 4,500",
+            duration: "2 - 2.5 hours",
+            skill: "Expert",
+            images: [
+                "3D Chrome Accents Nails-1.webp",
+                "3D Chrome Accents Nails-2.webp",
+                "3D Chrome Accents Nails-3.jpg",
+                "3D Chrome Accents Nails-4.jpg",
+                "3D Chrome Accents Nails-5.webp",
+                "3D Chrome Accents Nails-6.webp"
+            ]
+        }, {
+            id: 3,
+            title: "Rose Gold Abstract Chrome",
+            category: "chrome",
+            badge: "Chrome",
+            description: "Luxurious rose gold chrome with abstract swirl patterns. Warm and sophisticated.",
+            price: "KES 2,500 - 3,500",
+            duration: "1.5 - 2 hours",
+            skill: "Advanced",
+            images: [
+                "Rose Gold Abstract Chrome Nails-1.jpg",
+                "Rose Gold Abstract Chrome Nails-2.jpg",
+                "Rose Gold Abstract Chrome Nails-3.jpg",
+                "Rose Gold Abstract Chrome Nails-4.webp",
+                "Rose Gold Abstract Chrome Nails-5.webp",
+                "Rose Gold Abstract Chrome Nails-6.webp"
+            ]
+        }, {
+            id: 4,
+            title: "Textured & Embossed Matte/Gloss Contrast",
+            category: "matte",
+            badge: "Matte",
+            description: "Striking contrast between matte and glossy textures with embossed patterns.",
+            price: "KES 2,500 - 3,500",
+            duration: "2 hours",
+            skill: "Advanced",
+            images: [
+                "Gloss Contrast-1.webp",
+                "Gloss Contrast-2.webp",
+                "Gloss Contrast-3.jpg",
+                "Gloss Contrast-4.webp",
+                "Gloss Contrast-5.jpg",
+                "Gloss Contrast-6.jpg"
+            ]
+        }, {
+            id: 5,
+            title: "Velvet & Velvet Cat-Eye Nails",
+            category: "velvet",
+            badge: "Velvet",
+            description: "Luxurious velvet texture with cat-eye magnetic effect. Soft and mesmerizing.",
+            price: "KES 2,500 - 3,500",
+            duration: "1.5 - 2 hours",
+            skill: "Intermediate",
+            images: [
+                "Velvet & Velvet Cat-Eye Nails-1.webp",
+                "Velvet & Velvet Cat-Eye Nails-2.jpg",
+                "Velvet & Velvet Cat-Eye Nails-3.jpg",
+                "Velvet & Velvet Cat-Eye Nails-4.webp",
+                "Velvet & Velvet Cat-Eye Nails-5.jpg",
+                "Velvet & Velvet Cat-Eye Nails-6.webp"
+            ]
+        }, {
+            id: 6,
+            title: "Textured Nuance & Quartz Nails",
+            category: "matte",
+            badge: "Matte",
+            description: "Subtle textured nuance with quartz-like crystal details. Elegant and refined.",
+            price: "KES 2,800 - 3,800",
+            duration: "2 - 2.5 hours",
+            skill: "Advanced",
+            images: [
+                "Textured Nuance & Quartz Nails-1.jpg",
+                "Textured Nuance & Quartz Nails-2.jpg",
+                "Textured Nuance & Quartz Nails-3.webp",
+                "Textured Nuance & Quartz Nails-4.jpg",
+                "Textured Nuance & Quartz Nails-5.webp",
+                "Textured Nuance & Quartz Nails-6.jpg"
+            ]
+        }, {
+            id: 7,
+            title: "K-Beauty Blush Nails",
+            category: "ombre",
+            badge: "Trending",
+            description: "Soft Korean-inspired blush gradient with dreamy aura effect.",
+            price: "KES 2,300 - 3,200",
+            duration: "1.5 - 2 hours",
+            skill: "Intermediate",
+            images: [
+                "K-Beauty Blush Nails-1.webp",
+                "K-Beauty Blush Nails-2.jpg",
+                "K-Beauty Blush Nails-3.webp",
+                "K-Beauty Blush Nails-4.webp",
+                "K-Beauty Blush Nails-5.jpg",
+                "K-Beauty Blush Nails-6.jpg"
+            ]
+        }, {
+            id: 8,
+            title: "Chunky Charms & Maximalist Pierced Art",
+            category: "3dart",
+            badge: "3D Art",
+            description: "Bold chunky charms with maximalist pierced details. High-impact statement nails.",
+            price: "KES 3,200 - 4,800",
+            duration: "2.5 - 3 hours",
+            skill: "Expert",
+            images: [
+                "Chunky Charms & Maximalist Pierced Art-1.webp",
+                "Chunky Charms & Maximalist Pierced Art-2.jpg",
+                "Chunky Charms & Maximalist Pierced Art-3.jpg",
+                "Chunky Charms & Maximalist Pierced Art-4.jpg",
+                "Chunky Charms & Maximalist Pierced Art-5.jpg",
+                "Chunky Charms & Maximalist Pierced Art-6.jpg"
+            ]
+        }, {
+            id: 9,
+            title: "Reptile Print Texturing",
+            category: "3dart",
+            badge: "Trending",
+            description: "Bold reptile print texturing with 3D scale effects. Edgy and unique.",
+            price: "KES 2,800 - 4,000",
+            duration: "2 - 2.5 hours",
+            skill: "Advanced",
+            images: [
+                "Reptile Print Texturing-1.jpg",
+                "Reptile Print Texturing-2.jpg",
+                "Reptile Print Texturing-3.jpg",
+                "Reptile Print Texturing-4.webp",
+                "Reptile Print Texturing-5.webp",
+                "Reptile Print Texturing-6.jpg"
+            ]
+        }, {
+            id: 10,
+            title: "Sculpted 3D Jelly Florals",
+            category: "3dart",
+            badge: "3D Art",
+            description: "Delicate 3D jelly-like floral sculptures on each nail. A true work of art.",
+            price: "KES 3,500 - 5,000",
+            duration: "2.5 - 3 hours",
+            skill: "Expert",
+            images: [
+                "Sculpted 3D Jelly Florals-1.jpg",
+                "Sculpted 3D Jelly Florals-2.jpg",
+                "Sculpted 3D Jelly Florals-3.jpg",
+                "Sculpted 3D Jelly Florals-4.jpg",
+                "Sculpted 3D Jelly Florals-5.jpg",
+                "Sculpted 3D Jelly Florals-6.webp"
+            ]
+        }, {
+            id: 11,
+            title: "Water Droplet & Bubble Art",
+            category: "3dart",
+            badge: "Trending",
+            description: "Whimsical water droplet and bubble designs with 3D effect. Playful and artistic.",
+            price: "KES 2,500 - 3,500",
+            duration: "2 hours",
+            skill: "Intermediate",
+            images: [
+                "Water Droplet & Bubble Art-1.jpg",
+                "Water Droplet & Bubble Art-2.jpg",
+                "Water Droplet & Bubble Art-3.jpg",
+                "Water Droplet & Bubble Art-4.jpg",
+                "Water Droplet & Bubble Art-5.webp",
+                "Water Droplet & Bubble Art-6.jpg"
+            ]
+        }, {
+            id: 12,
+            title: "Baroque & Tortoiseshell Frames",
+            category: "french",
+            badge: "Classic",
+            description: "Elegant baroque frames with luxurious tortoiseshell details. Vintage-inspired.",
+            price: "KES 2,500 - 3,500",
+            duration: "2 hours",
+            skill: "Advanced",
+            images: [
+                "Baroque & Tortoiseshell Frames-1.jpg",
+                "Baroque & Tortoiseshell Frames-2.jpg",
+                "Baroque & Tortoiseshell Frames-3.webp",
+                "Baroque & Tortoiseshell Frames-4.jpg",
+                "Baroque & Tortoiseshell Frames-5.jpg",
+                "Baroque & Tortoiseshell Frames-6.webp"
+            ]
+        }, {
+            id: 13,
+            title: "Glass & Jelly 'Ice' Nails",
+            category: "french",
+            badge: "Trending",
+            description: "Crystalline glass and jelly 'ice' effects with transparent layering.",
+            price: "KES 3,000 - 4,500",
+            duration: "2 - 2.5 hours",
+            skill: "Advanced",
+            images: [
+                "Glass & Jelly 'Ice' Nails-1.jpg",
+                "Glass & Jelly 'Ice' Nails-2.jpg",
+                "Glass & Jelly 'Ice' Nails-3.webp",
+                "Glass & Jelly 'Ice' Nails-4.jpg",
+                "Glass & Jelly 'Ice' Nails-5.jpg",
+                "Glass & Jelly 'Ice' Nails-6.jpg"
+            ]
+        }, {
+            id: 14,
+            title: "Airbrushed Comic & Pop-Art Illusion",
+            category: "popart",
+            badge: "Trending",
+            description: "Airbrushed comic book and pop-art illusion designs. Bold and eye-catching.",
+            price: "KES 2,800 - 4,000",
+            duration: "2 - 2.5 hours",
+            skill: "Advanced",
+            images: [
+                "Airbrushed Comic & Pop-Art Illusion-1.webp",
+                "Airbrushed Comic & Pop-Art Illusion-2.webp",
+                "Airbrushed Comic & Pop-Art Illusion-3.webp",
+                "Airbrushed Comic & Pop-Art Illusion-4.webp",
+                "Airbrushed Comic & Pop-Art Illusion-5.jpg",
+                "Airbrushed Comic & Pop-Art Illusion-6.webp"
+            ]
+        }, {
+            id: 15,
+            title: "Abstract Negative Space & Swirls",
+            category: "abstract",
+            badge: "Artistic",
+            description: "Modern abstract designs with negative space and flowing swirl patterns.",
+            price: "KES 2,500 - 3,500",
+            duration: "1.5 - 2 hours",
+            skill: "Intermediate",
+            images: [
+                "Abstract Negative Space & Swirls-1.jpg",
+                "Abstract Negative Space & Swirls-2.jpg",
+                "Abstract Negative Space & Swirls-3.jpg",
+                "Abstract Negative Space & Swirls-4.jpg",
+                "Abstract Negative Space & Swirls-5.jpg",
+                "Abstract Negative Space & Swirls-6.webp"
+            ]
+        }, {
+            id: 16,
+            title: "Fine-Line Metallic Foil Transfers",
+            category: "abstract",
+            badge: "Artistic",
+            description: "Fine-line metallic foil transfers with intricate detail. Delicate and elegant.",
+            price: "KES 2,800 - 3,800",
+            duration: "2 - 2.5 hours",
+            skill: "Advanced",
+            images: [
+                "Fine-Line Metallic Foil Transfers-1.jpg",
+                "Fine-Line Metallic Foil Transfers-2.jpg",
+                "Fine-Line Metallic Foil Transfers-3.jpg",
+                "Fine-Line Metallic Foil Transfers-4.jpg",
+                "Fine-Line Metallic Foil Transfers-5.jpg",
+                "Fine-Line Metallic Foil Transfers-6.jpg"
+            ]
+        }];
+
+        // =============================================
+        function getImagePath(filename) {
+            return 'Images/' + filename;
+        }
+
+        const galleryGrid = document.getElementById('galleryGrid');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modalClose = document.getElementById('modalClose');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalBadge = document.getElementById('modalBadge');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalCategory = document.getElementById('modalCategory');
+        const modalPrice = document.getElementById('modalPrice');
+        const modalDuration = document.getElementById('modalDuration');
+        const modalSkill = document.getElementById('modalSkill');
+        const modalGallery = document.getElementById('modalGallery');
+        const relatedGrid = document.getElementById('relatedGrid');
+
+        function renderAllDesigns() {
+            galleryGrid.innerHTML = '';
+            designs.forEach(d => {
+                const col = document.createElement('div');
+                col.className = 'col-md-3 gallery-item';
+                const coverImage = d.images[0];
+                col.innerHTML = `
+                    <img src="${getImagePath(coverImage)}" 
+                         alt="${d.title}" 
+                         class="gallery-img" 
+                         onclick="openModal(${d.id})"
+                         style="cursor: pointer; height: 220px; width: 100%; object-fit: cover; border-radius: 12px; border: 2px solid rgba(212,175,55,0.3);"
+                         onerror="this.style.display='none'" />
+                    <p class="caption" style="text-align: center; margin-top: 10px; color: #d4af37; font-weight: 500;">${d.title}</p>
+                `;
+                galleryGrid.appendChild(col);
+            });
+        }
+
+        function updateMainImage(src) {
+            modalImage.src = src;
+            document.querySelectorAll('.modal-gallery .thumb').forEach(thumb => {
+                thumb.classList.toggle('active', thumb.src === src);
+            });
+        }
+
+        function openModal(id) {
+            const design = designs.find(d => d.id === id);
+            if (!design) return;
+
+            modalImage.src = getImagePath(design.images[0]);
+            modalImage.alt = design.title;
+            modalTitle.textContent = design.title;
+            modalBadge.textContent = '✦ ' + design.badge;
+            modalDescription.textContent = design.description;
+            modalCategory.textContent = design.category.charAt(0).toUpperCase() + design.category.slice(1);
+            modalPrice.textContent = design.price;
+            modalDuration.textContent = design.duration;
+            modalSkill.textContent = design.skill;
+
+            modalGallery.innerHTML = '';
+            design.images.forEach(img => {
+                const thumb = document.createElement('img');
+                thumb.className = 'thumb';
+                thumb.src = getImagePath(img);
+                thumb.alt = design.title;
+                thumb.onclick = function() { updateMainImage(this.src); };
+                if (img === design.images[0]) thumb.classList.add('active');
+                modalGallery.appendChild(thumb);
+            });
+
+            const related = designs.filter(d => d.category === design.category && d.id !== design.id);
+            if (related.length > 0) {
+                relatedGrid.innerHTML = related.map(d => `
+                    <div class="related-item" onclick="openModal(${d.id}); event.stopPropagation();">
+                        <img src="${getImagePath(d.images[0])}" alt="${d.title}" />
+                        <p>${d.title.substring(0, 15)}${d.title.length > 15 ? '...' : ''}</p>
+                    </div>
+                `).join('');
+                document.getElementById('modalRelated').style.display = 'block';
+            } else {
+                document.getElementById('modalRelated').style.display = 'none';
+            }
+
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        modalClose.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        renderAllDesigns();
+    </script>
 
 </body>
 </html>
