@@ -5,25 +5,212 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>18 Karat Nails | Book Appointment</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* ===== SCROLL ANIMATIONS ===== */
-        .glass,
-        .policy-card {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.7s ease-out;
+        /* ===== BOOKING PAGE SPECIFIC STYLES ===== */
+        .booking-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
         }
-        .glass.visible,
-        .policy-card.visible {
-            opacity: 1;
-            transform: translateY(0);
+
+        .booking-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(20px) saturate(1.2);
+            -webkit-backdrop-filter: blur(20px) saturate(1.2);
+            border: 1px solid rgba(212, 175, 55, 0.12);
+            border-radius: 24px;
+            padding: 45px 40px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .booking-card:hover {
+            border-color: rgba(212, 175, 55, 0.2);
+            box-shadow: 0 12px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .booking-title {
+            font-family: 'Elsie', serif;
+            font-size: 2.8rem;
+            color: #d4af37;
+            text-align: center;
+            margin-bottom: 8px;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
+        }
+
+        .booking-subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1rem;
+            margin-bottom: 35px;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .form-group label .required {
+            color: #d4af37;
+        }
+
+        /* ===== DARKER INPUT FIELDS ===== */
+        .form-control {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: #f0f0f0;
+            padding: 14px 18px;
+            border-radius: 14px;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            width: 100%;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-control:focus {
+            border-color: #d4af37;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.06), inset 0 2px 8px rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.7);
+            outline: none;
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.2);
+            font-weight: 300;
+        }
+
+        .form-control option {
+            background: #0a0a0a;
+            color: #f0f0f0;
+        }
+
+        /* Styled Select */
+        select.form-control {
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23d4af37' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 18px center;
+            padding-right: 45px;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        /* Styled Date Input */
+        input[type="date"].form-control {
+            color-scheme: dark;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        input[type="date"].form-control::-webkit-calendar-picker-indicator {
+            filter: invert(0.6);
+            cursor: pointer;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+            font-family: 'Poppins', sans-serif;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .error-message {
+            color: #ff6b6b;
+            font-size: 0.75rem;
+            display: none;
+            margin-top: 5px;
+            font-weight: 400;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .form-control.error {
+            border-color: #ff6b6b;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #d4af37, #b8960c);
+            color: #0a0a0a;
+            padding: 16px 40px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+            font-size: 1rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 25px rgba(212, 175, 55, 0.25);
+            width: 100%;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 40px rgba(212, 175, 55, 0.35);
+            color: #0a0a0a;
+        }
+
+        .policy-section {
+            margin-top: 40px;
+        }
+
+        .policy-section .section-title {
+            margin-bottom: 25px;
+        }
+
+        .policy-section .section-title h2 {
+            font-size: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .booking-card {
+                padding: 30px 20px;
+            }
+            .booking-title {
+                font-size: 2.2rem;
+            }
+            .form-control {
+                padding: 12px 16px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .booking-card {
+                padding: 25px 16px;
+            }
+            .booking-title {
+                font-size: 1.8rem;
+            }
+            .btn-submit {
+                padding: 14px 25px;
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- ===== NAVBAR ===== -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="index.html">18 Karat Nails</a>
@@ -45,123 +232,134 @@
         </div>
     </nav>
 
+    <!-- ===== BOOKING SECTION ===== -->
     <div class="container my-5">
-        <div class="section-title">
-            <h2>📅 Book Your Appointment</h2>
-            <p>Reserve your spot at 18 Karat Nails. We'll confirm your booking within 24 hours.</p>
-        </div>
+        <div class="booking-wrapper">
+            <div class="booking-card">
+                <h1 class="booking-title">📅 Book Your Appointment</h1>
+                <p class="booking-subtitle">Reserve your spot at 18 Karat Nails. We'll confirm your booking within 24 hours.</p>
 
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <div class="glass">
-                    <form id="bookingForm" onsubmit="return validateForm()">
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">First Name *</label>
-                                <input type="text" class="form-control" id="firstName" placeholder="Your first name">
-                                <div class="error-message" id="firstNameError">Please enter your first name</div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Last Name *</label>
-                                <input type="text" class="form-control" id="lastName" placeholder="Your last name">
-                                <div class="error-message" id="lastNameError">Please enter your last name</div>
-                            </div>
+                <form id="bookingForm" onsubmit="return validateForm()">
+
+                    <!-- Row: First Name + Last Name -->
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label>First Name <span class="required">*</span></label>
+                            <input type="text" class="form-control" id="firstName" placeholder="Your first name">
+                            <div class="error-message" id="firstNameError">Please enter your first name</div>
                         </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">Email Address *</label>
-                            <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                            <div class="error-message" id="emailError">Please enter a valid email address</div>
+                        <div class="col-md-6 form-group">
+                            <label>Last Name <span class="required">*</span></label>
+                            <input type="text" class="form-control" id="lastName" placeholder="Your last name">
+                            <div class="error-message" id="lastNameError">Please enter your last name</div>
                         </div>
+                    </div>
 
-                        <div class="mb-3">
-                            <label class="form-label">Phone Number *</label>
-                            <input type="tel" class="form-control" id="phone" placeholder="+254700000000">
-                            <div class="error-message" id="phoneError">Please enter a valid phone number</div>
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label>Email Address <span class="required">*</span></label>
+                        <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                        <div class="error-message" id="emailError">Please enter a valid email address</div>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="form-group">
+                        <label>Phone Number <span class="required">*</span></label>
+                        <input type="tel" class="form-control" id="phone" placeholder="+254700000000">
+                        <div class="error-message" id="phoneError">Please enter a valid phone number</div>
+                    </div>
+
+                    <!-- Service -->
+                    <div class="form-group">
+                        <label>Select Service <span class="required">*</span></label>
+                        <select class="form-control" id="service">
+                            <option value="">Select a service...</option>
+                            <option value="biab">BIAB (KES 3,500)</option>
+                            <option value="gelx">Gel X Extensions (KES 4,500)</option>
+                            <option value="nailart">Nail Art (KES 300-800)</option>
+                            <option value="pedicure">Luxury Pedicure (KES 2,500)</option>
+                            <option value="manicure">Gel Manicure (KES 1,800)</option>
+                            <option value="removal">Nail Removal (KES 1,000)</option>
+                        </select>
+                        <div class="error-message" id="serviceError">Please select a service</div>
+                    </div>
+
+                    <!-- Row: Date + Time -->
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label>Preferred Date</label>
+                            <input type="date" class="form-control" id="date">
                         </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">Select Service *</label>
-                            <select class="form-control" id="service">
-                                <option value="">Select a service...</option>
-                                <option value="biab">BIAB (KES 3,500)</option>
-                                <option value="gelx">Gel X Extensions (KES 4,500)</option>
-                                <option value="nailart">Nail Art (KES 300-800)</option>
-                                <option value="pedicure">Luxury Pedicure (KES 2,500)</option>
-                                <option value="manicure">Gel Manicure (KES 1,800)</option>
-                                <option value="removal">Nail Removal (KES 1,000)</option>
+                        <div class="col-md-6 form-group">
+                            <label>Preferred Time</label>
+                            <select class="form-control" id="time">
+                                <option value="">Select time</option>
+                                <option value="7am">7:00 AM</option>
+                                <option value="8am">8:00 AM</option>
+                                <option value="9am">9:00 AM</option>
+                                <option value="10am">10:00 AM</option>
+                                <option value="11am">11:00 AM</option>
+                                <option value="12pm">12:00 PM</option>
+                                <option value="1pm">1:00 PM</option>
+                                <option value="2pm">2:00 PM</option>
+                                <option value="3pm">3:00 PM</option>
+                                <option value="4pm">4:00 PM</option>
+                                <option value="5pm">5:00 PM</option>
                             </select>
-                            <div class="error-message" id="serviceError">Please select a service</div>
                         </div>
+                    </div>
 
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Preferred Date</label>
-                                <input type="date" class="form-control" id="date">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Preferred Time</label>
-                                <select class="form-control" id="time">
-                                    <option value="">Select time</option>
-                                    <option value="7am">7:00 AM</option>
-                                    <option value="8am">8:00 AM</option>
-                                    <option value="9am">9:00 AM</option>
-                                    <option value="10am">10:00 AM</option>
-                                    <option value="11am">11:00 AM</option>
-                                    <option value="12pm">12:00 PM</option>
-                                    <option value="1pm">1:00 PM</option>
-                                    <option value="2pm">2:00 PM</option>
-                                    <option value="3pm">3:00 PM</option>
-                                    <option value="4pm">4:00 PM</option>
-                                    <option value="5pm">5:00 PM</option>
-                                </select>
-                            </div>
+                    <!-- Special Requests -->
+                    <div class="form-group">
+                        <label>Special Requests</label>
+                        <textarea class="form-control" id="notes" placeholder="Any specific design ideas or requests?"></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn-submit">Submit Booking →</button>
+
+                </form>
+            </div>
+
+            <!-- ===== POLICY SECTION ===== -->
+            <div class="policy-section">
+                <div class="section-title">
+                    <h2>📋 Booking Policies</h2>
+                    <p>Important info for a seamless experience</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <div class="policy-card">
+                            <h4>💰 Payment</h4>
+                            <p>KES 500 non-refundable deposit required. Balance due at appointment.</p>
                         </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">Special Requests</label>
-                            <textarea class="form-control" id="notes" rows="3" placeholder="Any specific design ideas or requests?"></textarea>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="policy-card">
+                            <h4>⏰ Rescheduling</h4>
+                            <p>Free up to 24hrs. KES 300 fee within 24hrs.</p>
                         </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="policy-card">
+                            <h4>🚶 Late Arrival</h4>
+                            <p>Over 15 mins late = KES 200 fee. Service may be shortened.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="policy-card">
+                            <h4>❌ Cancellation</h4>
+                            <p>Less than 24hrs = KES 500 fee. Deposits non-refundable.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                        <button type="submit" class="btn-gold">Submit Booking →</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <div class="section-title mt-5">
-            <h2>📋 Booking Policies</h2>
-            <p>Important info for a seamless experience</p>
-        </div>
-
-        <div class="row">
-            <div class="col-md-3 mb-3">
-                <div class="policy-card">
-                    <h4>💰 Payment</h4>
-                    <p>KES 500 non-refundable deposit required. Balance due at appointment.</p>
-                </div>
-            </div>
-            <div class="col-md-3 mb-3">
-                <div class="policy-card">
-                    <h4>⏰ Rescheduling</h4>
-                    <p>Free up to 24hrs. KES 300 fee within 24hrs.</p>
-                </div>
-            </div>
-            <div class="col-md-3 mb-3">
-                <div class="policy-card">
-                    <h4>🚶 Late Arrival</h4>
-                    <p>Over 15 mins late = KES 200 fee. Service may be shortened.</p>
-                </div>
-            </div>
-            <div class="col-md-3 mb-3">
-                <div class="policy-card">
-                    <h4>❌ Cancellation</h4>
-                    <p>Less than 24hrs = KES 500 fee. Deposits non-refundable.</p>
-                </div>
-            </div>
         </div>
     </div>
 
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
             <p>© 2026 18 Karat Nails | Lavington Square Mall, 3rd Floor, Nairobi | 0738336465</p>
@@ -176,7 +374,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const items = document.querySelectorAll('.glass, .policy-card');
+            const items = document.querySelectorAll('.policy-card');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {

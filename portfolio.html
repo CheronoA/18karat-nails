@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>18 Karat Nails | Portfolio</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💅</text></svg>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* ===== SCROLL ANIMATIONS ===== */
         .gallery-item {
             opacity: 0;
             transform: translateY(40px);
@@ -46,7 +46,7 @@
             overflow-y: auto;
             padding: 35px;
             position: relative;
-            border: 2px solid #d4af37;
+            border: 1px solid rgba(212, 175, 55, 0.15);
             animation: slideUp 0.4s ease;
         }
         .modal-content .main-image {
@@ -65,7 +65,7 @@
             font-size: 2rem;
         }
         .modal-content p {
-            color: #ccc;
+            color: rgba(255, 255, 255, 0.7);
             line-height: 1.8;
         }
 
@@ -77,12 +77,13 @@
             background: none;
             border: none;
             cursor: pointer;
-            color: #d4af37;
+            color: rgba(255, 255, 255, 0.5);
             transition: transform 0.3s ease;
             z-index: 10;
         }
         .modal-close:hover {
             transform: rotate(90deg);
+            color: #d4af37;
         }
 
         .modal-details {
@@ -92,16 +93,16 @@
             margin: 15px 0;
         }
         .modal-details .detail-item {
-            background: rgba(26, 26, 26, 0.8);
+            background: rgba(255, 255, 255, 0.04);
             padding: 12px 14px;
             border-radius: 12px;
-            border: 1px solid rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             text-align: center;
         }
         .modal-details .detail-item .label {
             font-size: 0.6rem;
             text-transform: uppercase;
-            color: #888;
+            color: rgba(255, 255, 255, 0.3);
             font-weight: 500;
         }
         .modal-details .detail-item .value {
@@ -112,7 +113,7 @@
 
         .modal-badge {
             display: inline-block;
-            background: rgba(212, 175, 55, 0.15);
+            background: rgba(212, 175, 55, 0.1);
             color: #d4af37;
             padding: 3px 16px;
             border-radius: 30px;
@@ -131,14 +132,14 @@
             padding: 10px;
             background: rgba(0, 0, 0, 0.3);
             border-radius: 12px;
-            border: 1px solid rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
         .modal-gallery .thumb {
             width: 100%;
             height: 80px;
             object-fit: cover;
             border-radius: 8px;
-            border: 2px solid rgba(212, 175, 55, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -148,16 +149,16 @@
         }
         .modal-gallery .thumb.active {
             border-color: #d4af37;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
         }
 
         .modal-related {
             margin-top: 18px;
             padding-top: 18px;
-            border-top: 1px solid rgba(212, 175, 55, 0.15);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
         .modal-related h4 {
-            color: #d4af37;
+            color: rgba(255, 255, 255, 0.6);
             font-size: 0.9rem;
             margin-bottom: 10px;
         }
@@ -181,11 +182,11 @@
             height: 70px;
             object-fit: cover;
             border-radius: 8px;
-            border: 1px solid rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.06);
         }
         .modal-related .related-grid .related-item p {
             font-size: 0.55rem;
-            color: #888;
+            color: rgba(255, 255, 255, 0.3);
             margin-top: 4px;
         }
 
@@ -317,9 +318,6 @@
     </script>
 
     <script>
-        // =============================================
-        // DATA - ALL DESIGNS
-        // =============================================
         const designs = [{
             id: 1,
             title: "Aurora Chrome Nails",
@@ -623,9 +621,9 @@
                          alt="${d.title} - cover image" 
                          class="gallery-img" 
                          onclick="openModal(${d.id})"
-                         style="cursor: pointer; height: 220px; width: 100%; object-fit: cover; border-radius: 12px; border: 2px solid rgba(212,175,55,0.3);"
+                         style="cursor: pointer; height: 220px; width: 100%; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);"
                          onerror="this.style.display='none'" />
-                    <p class="caption" style="text-align: center; margin-top: 10px; color: #d4af37; font-weight: 500;">${d.title}</p>
+                    <p class="caption">${d.title}</p>
                 `;
                 galleryGrid.appendChild(col);
             });
