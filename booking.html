@@ -4,22 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>18 Karat Nails | Book Appointment</title>
-    <!-- ===== META TAGS FOR SEO ===== -->
-    <meta name="description" content="18 Karat Nails — Luxury nail art studio in Nairobi offering BIAB, Gel X extensions, custom nail art, and pedicures. Book your appointment today." />
-    <meta name="keywords" content="nail art, BIAB, Gel X, luxury nails, Nairobi, 18 Karat Nails, nail salon, pedicure, manicure" />
+    <meta name="description" content="Book your luxury nail appointment at 18 Karat Nails — BIAB, Gel X, custom nail art, pedicures, and more in Nairobi." />
+    <meta name="keywords" content="book appointment, BIAB, Gel X, nail art, Nairobi, 18 Karat Nails" />
     <meta name="author" content="Cherono" />
     <meta name="robots" content="index, follow" />
-    <!-- ===== OPEN GRAPH / SOCIAL MEDIA ===== -->
     <meta property="og:title" content="18 Karat Nails | Book Appointment" />
-    <meta property="og:description" content="Book your appointment at 18 Karat Nails, the premier luxury nail art studio in Nairobi." />
+    <meta property="og:description" content="Book your luxury nail appointment at 18 Karat Nails — BIAB, Gel X, custom nail art, and more." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://cheronoa.github.io/18karat-nails/booking.html" />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💅</text></svg>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/18karat-nails/css/style.css">
     <style>
-        /* ===== BOOKING PAGE SPECIFIC STYLES ===== */
         .booking-wrapper {
             max-width: 700px;
             margin: 0 auto;
@@ -75,7 +72,6 @@
             color: #d4af37;
         }
 
-        /* ===== DARKER INPUT FIELDS ===== */
         .form-control {
             background: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(8px);
@@ -108,7 +104,6 @@
             color: #f0f0f0;
         }
 
-        /* Styled Select */
         select.form-control {
             appearance: none;
             -webkit-appearance: none;
@@ -120,7 +115,6 @@
             background-color: rgba(0, 0, 0, 0.6);
         }
 
-        /* Styled Date Input */
         input[type="date"].form-control {
             color-scheme: dark;
             cursor: pointer;
@@ -221,29 +215,27 @@
 </head>
 <body>
 
-    <!-- ===== NAVBAR ===== -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="index.html">18 Karat Nails</a>
+            <a class="navbar-brand" href="/18karat-nails/index.html">18 Karat Nails</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon" style="background-color: #d4af37; border-radius: 3px;"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="booking.html">Book</a></li>
-                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="testimonials.html">Reviews</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/18karat-nails/index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/18karat-nails/services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/18karat-nails/portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/18karat-nails/about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/18karat-nails/booking.html">Book</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/18karat-nails/faq.html">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/18karat-nails/testimonials.html">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/18karat-nails/contact.html">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- ===== BOOKING SECTION ===== -->
     <div class="container my-5">
         <div class="booking-wrapper">
             <div class="booking-card">
@@ -252,7 +244,6 @@
 
                 <form id="bookingForm" onsubmit="return validateForm()">
 
-                    <!-- Row: First Name + Last Name -->
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label>First Name <span class="required">*</span></label>
@@ -266,21 +257,18 @@
                         </div>
                     </div>
 
-                    <!-- Email -->
                     <div class="form-group">
                         <label>Email Address <span class="required">*</span></label>
                         <input type="email" class="form-control" id="email" placeholder="you@example.com">
                         <div class="error-message" id="emailError">Please enter a valid email address</div>
                     </div>
 
-                    <!-- Phone -->
                     <div class="form-group">
                         <label>Phone Number <span class="required">*</span></label>
                         <input type="tel" class="form-control" id="phone" placeholder="+254700000000">
                         <div class="error-message" id="phoneError">Please enter a valid phone number</div>
                     </div>
 
-                    <!-- Service -->
                     <div class="form-group">
                         <label>Select Service <span class="required">*</span></label>
                         <select class="form-control" id="service">
@@ -295,7 +283,6 @@
                         <div class="error-message" id="serviceError">Please select a service</div>
                     </div>
 
-                    <!-- Row: Date + Time -->
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label>Preferred Date</label>
@@ -320,19 +307,16 @@
                         </div>
                     </div>
 
-                    <!-- Special Requests -->
                     <div class="form-group">
                         <label>Special Requests</label>
                         <textarea class="form-control" id="notes" placeholder="Any specific design ideas or requests?"></textarea>
                     </div>
 
-                    <!-- Submit Button -->
                     <button type="submit" class="btn-submit">Submit Booking →</button>
 
                 </form>
             </div>
 
-            <!-- ===== POLICY SECTION ===== -->
             <div class="policy-section">
                 <div class="section-title">
                     <h2>📋 Booking Policies</h2>
@@ -370,7 +354,6 @@
         </div>
     </div>
 
-    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
             <p>© 2026 18 Karat Nails | Lavington Square Mall, 3rd Floor, Nairobi | 0738336465</p>
@@ -380,7 +363,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
     </script>
-    <script src="js/validation.js">
+    <script src="/18karat-nails/js/validation.js">
     </script>
 
     <script>

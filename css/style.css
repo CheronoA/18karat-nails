@@ -1,8 +1,8 @@
 /* =============================================
-   18 KARAT NAILS - DARKER & GLOWING EDITION ✨
+   18 KARAT NAILS - EDITORIAL BEAUTY BRAND ✨
+   Clean, elegant, high-end aesthetic
    ============================================= */
 
-/* ===== RESET & BASE ===== */
 * {
     margin: 0;
     padding: 0;
@@ -12,8 +12,8 @@
 body {
     font-family: 'Poppins', sans-serif;
     background: 
-        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
-        url('../Images/pink-cheetah-bg1.0.jpg') center center / cover fixed no-repeat;
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('/18karat-nails/Images/pink-cheetah-bg.jpg') center center / cover fixed no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -31,37 +31,29 @@ a {
     text-decoration: none;
 }
 
-/* ===== GLOWING GOLD TEXT ===== */
-.glow-gold {
-    color: #d4af37;
-    text-shadow: 
-        0 0 10px rgba(212, 175, 55, 0.3),
-        0 0 20px rgba(212, 175, 55, 0.15),
-        0 0 40px rgba(212, 175, 55, 0.08);
-}
-
-/* ===== GLASS EFFECT — DARKER & RICHER ===== */
+/* ===== CLEAN GLASS EFFECT ===== */
 .glass {
-    background: rgba(8, 8, 8, 0.75);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(212, 175, 55, 0.12);
-    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px) saturate(1.2);
+    -webkit-backdrop-filter: blur(16px) saturate(1.2);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
     padding: 35px;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 .glass:hover {
-    border-color: rgba(212, 175, 55, 0.3);
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+    border-color: rgba(212, 175, 55, 0.15);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
 }
 
-/* ===== NAVBAR — DARKER ===== */
+/* ===== NAVBAR — CLEAN ===== */
 .navbar {
-    background: rgba(5, 5, 5, 0.95);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(16px) saturate(1.2);
+    -webkit-backdrop-filter: blur(16px) saturate(1.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
     padding: 0.8rem 0;
 }
 
@@ -71,7 +63,6 @@ a {
     font-size: 1.5rem;
     color: #d4af37 !important;
     letter-spacing: 1px;
-    text-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
 }
 
 .nav-link {
@@ -85,39 +76,36 @@ a {
 
 .nav-link:hover {
     color: #d4af37 !important;
-    text-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
 }
 
 .nav-link.active {
     color: #d4af37 !important;
     border-bottom: 1px solid #d4af37;
-    text-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
 }
 
-/* ===== GOLD BUTTON — PREMIUM ===== */
+/* ===== GOLD BUTTON — CLEAN ===== */
 .btn-gold {
-    background: linear-gradient(135deg, #d4af37, #a8892a);
+    background: #d4af37;
     color: #0a0a0a;
     padding: 14px 40px;
-    font-weight: 600;
+    font-weight: 500;
     text-decoration: none;
     border-radius: 50px;
     transition: all 0.3s ease;
     display: inline-block;
     border: none;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    box-shadow: 0 4px 25px rgba(212, 175, 55, 0.3);
 }
 
 .btn-gold:hover {
+    background: #b8960c;
     transform: translateY(-2px);
-    box-shadow: 0 8px 40px rgba(212, 175, 55, 0.4);
     color: #0a0a0a;
 }
 
-/* ===== SECTION TITLE ===== */
+/* ===== SECTION TITLE — EDITORIAL ===== */
 .section-title {
     text-align: center;
     margin: 60px 0 40px;
@@ -125,91 +113,75 @@ a {
 
 .section-title h2 {
     font-size: 2.8rem;
-    color: #d4af37;
+    color: #fff;
     margin-bottom: 8px;
     letter-spacing: 2px;
-    text-shadow: 
-        0 0 20px rgba(212, 175, 55, 0.2),
-        0 0 40px rgba(212, 175, 55, 0.08);
+    font-weight: 300;
 }
 
 .section-title p {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.4);
     font-size: 1rem;
     font-weight: 300;
     letter-spacing: 1px;
 }
 
-/* ===== FEATURE CARDS ===== */
-.feature-card {
-    background: rgba(8, 8, 8, 0.7);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+/* ===== CARDS — CLEAN & MINIMAL ===== */
+.feature-card,
+.service-card,
+.about-card,
+.info-card,
+.testimonial-card,
+.contact-info,
+.policy-card,
+.faq-item {
+    background: rgba(10, 10, 10, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-radius: 16px;
-    padding: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    text-align: center;
+    padding: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
     transition: all 0.3s ease;
-    height: 100%;
 }
 
-.feature-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(212, 175, 55, 0.25);
-    background: rgba(8, 8, 8, 0.85);
+.feature-card:hover,
+.service-card:hover,
+.about-card:hover,
+.info-card:hover,
+.testimonial-card:hover,
+.contact-info:hover,
+.policy-card:hover,
+.faq-item:hover {
+    transform: translateY(-4px);
+    border-color: rgba(212, 175, 55, 0.1);
+    background: rgba(10, 10, 10, 0.7);
 }
 
-.feature-card .icon {
+.feature-card .icon,
+.service-card .icon,
+.contact-info .icon {
     font-size: 2.5rem;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
-.feature-card h3 {
-    font-size: 1.2rem;
+.feature-card h3,
+.service-card h3,
+.about-card h3,
+.info-card h4,
+.policy-card h4,
+.contact-info h4 {
     color: #d4af37;
     margin-bottom: 10px;
-    text-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+    font-weight: 400;
 }
 
-.feature-card p {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.9rem;
-    line-height: 1.6;
-}
-
-/* ===== SERVICE CARDS ===== */
-.service-card {
-    background: rgba(8, 8, 8, 0.7);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-radius: 16px;
-    padding: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    text-align: center;
-    transition: all 0.3s ease;
-    height: 100%;
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(212, 175, 55, 0.25);
-    background: rgba(8, 8, 8, 0.85);
-}
-
-.service-card .icon {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.service-card h3 {
-    font-size: 1.3rem;
-    color: #d4af37;
-    margin-bottom: 8px;
-    text-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
-}
-
-.service-card .desc {
-    color: rgba(255, 255, 255, 0.6);
+.feature-card p,
+.service-card .desc,
+.about-card p,
+.info-card p,
+.policy-card p,
+.contact-info p {
+    color: rgba(255, 255, 255, 0.5);
     font-size: 0.9rem;
     line-height: 1.6;
 }
@@ -217,9 +189,8 @@ a {
 .service-card .price {
     font-size: 1.8rem;
     color: #d4af37;
-    font-weight: 600;
+    font-weight: 500;
     margin: 10px 0;
-    text-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
 }
 
 /* ===== GALLERY ===== */
@@ -228,26 +199,22 @@ a {
     height: 280px;
     object-fit: cover;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    transition: all 0.4s ease;
     background-color: #0a0a0a;
 }
 
 .gallery-img:hover {
     transform: scale(1.02);
-    border-color: rgba(212, 175, 55, 0.2);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-}
-
-.gallery-item {
-    margin-bottom: 30px;
+    border-color: rgba(212, 175, 55, 0.1);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
 .gallery-item .caption {
     text-align: center;
     margin-top: 12px;
-    color: rgba(255, 255, 255, 0.7);
-    font-weight: 400;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 300;
     font-size: 0.85rem;
     letter-spacing: 0.5px;
 }
@@ -255,12 +222,12 @@ a {
 /* ===== FILTER BUTTONS ===== */
 .filter-btn {
     background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.5);
     padding: 8px 22px;
     margin: 5px;
     border-radius: 50px;
-    font-weight: 400;
+    font-weight: 300;
     transition: all 0.3s ease;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
@@ -270,115 +237,26 @@ a {
 
 .filter-btn:hover,
 .filter-btn.active {
-    background: rgba(212, 175, 55, 0.15);
     border-color: #d4af37;
     color: #d4af37;
 }
 
-/* ===== ABOUT PAGE ===== */
-.about-card {
-    background: rgba(8, 8, 8, 0.7);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-radius: 16px;
-    padding: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    margin-bottom: 20px;
-    transition: all 0.3s ease;
-}
-
-.about-card:hover {
-    border-color: rgba(212, 175, 55, 0.25);
-    background: rgba(8, 8, 8, 0.85);
-}
-
-.about-card h3 {
-    color: #d4af37;
-    margin-bottom: 15px;
-    text-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
-}
-
-.about-card p {
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.8;
-}
-
+/* ===== FUN FACT ===== */
 .fun-fact {
     display: inline-block;
-    background: rgba(212, 175, 55, 0.1);
-    border: 1px solid rgba(212, 175, 55, 0.15);
+    background: rgba(212, 175, 55, 0.06);
+    border: 1px solid rgba(212, 175, 55, 0.08);
     border-radius: 50px;
     padding: 5px 18px;
     margin: 4px;
     font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.info-card {
-    background: rgba(8, 8, 8, 0.7);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-radius: 16px;
-    padding: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    margin-bottom: 15px;
-    height: 100%;
-    transition: all 0.3s ease;
-}
-
-.info-card:hover {
-    border-color: rgba(212, 175, 55, 0.25);
-}
-
-.info-card h4 {
-    color: #d4af37;
-    font-size: 1rem;
-}
-
-.info-card p {
-    color: rgba(255, 255, 255, 0.6);
-    margin: 0;
-    font-size: 0.9rem;
-}
-
-/* ===== CONTACT PAGE ===== */
-.contact-info {
-    background: rgba(8, 8, 8, 0.7);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-radius: 16px;
-    padding: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    margin-bottom: 20px;
-    transition: all 0.3s ease;
-    text-align: center;
-    height: 100%;
-}
-
-.contact-info:hover {
-    border-color: rgba(212, 175, 55, 0.25);
-    transform: translateY(-3px);
-}
-
-.contact-info .icon {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.contact-info h4 {
-    color: #d4af37;
-    font-size: 1.1rem;
-}
-
-.contact-info p {
-    color: rgba(255, 255, 255, 0.6);
-    margin: 0;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 /* ===== BOOKING FORM ===== */
 .form-control {
-    background: rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     color: #f0f0f0;
     padding: 14px;
     border-radius: 12px;
@@ -387,17 +265,16 @@ a {
 
 .form-control:focus {
     border-color: #d4af37;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.08);
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .form-control::placeholder {
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.2);
 }
 
 .form-label {
-    color: rgba(255, 255, 255, 0.7);
-    font-weight: 400;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 300;
     font-size: 0.85rem;
     letter-spacing: 0.5px;
 }
@@ -418,67 +295,21 @@ a {
     border-color: #ff6b6b;
 }
 
-/* ===== POLICY CARDS ===== */
-.policy-card {
-    background: rgba(8, 8, 8, 0.7);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-radius: 16px;
-    padding: 25px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    text-align: center;
-    height: 100%;
-    transition: all 0.3s ease;
-}
-
-.policy-card:hover {
-    border-color: rgba(212, 175, 55, 0.25);
-    background: rgba(8, 8, 8, 0.85);
-}
-
-.policy-card h4 {
-    color: #d4af37;
-    font-size: 1rem;
-}
-
-.policy-card p {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.85rem;
-    margin: 0;
-}
-
-/* ===== FAQ ACCORDION ===== */
-.faq-item {
-    background: rgba(8, 8, 8, 0.7);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-radius: 12px;
-    padding: 20px 25px;
-    margin-bottom: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.faq-item:hover {
-    border-color: rgba(212, 175, 55, 0.25);
-    background: rgba(8, 8, 8, 0.85);
-}
-
+/* ===== FAQ ===== */
 .faq-item h4 {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.7);
     font-size: 1rem;
     margin: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 .faq-item h4 .arrow {
     transition: transform 0.3s ease;
     font-size: 1rem;
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.2);
 }
 
 .faq-item.open h4 .arrow {
@@ -486,11 +317,11 @@ a {
 }
 
 .faq-item p {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.4);
     margin: 15px 0 0 0;
     display: none;
     padding-top: 15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
     line-height: 1.8;
     font-size: 0.9rem;
 }
@@ -499,25 +330,7 @@ a {
     display: block;
 }
 
-/* ===== TESTIMONIAL CARDS ===== */
-.testimonial-card {
-    background: rgba(8, 8, 8, 0.7);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-radius: 16px;
-    padding: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.3s ease;
-    height: 100%;
-    text-align: center;
-}
-
-.testimonial-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(212, 175, 55, 0.25);
-    background: rgba(8, 8, 8, 0.85);
-}
-
+/* ===== TESTIMONIALS ===== */
 .testimonial-card .stars {
     color: #d4af37;
     font-size: 1.2rem;
@@ -525,7 +338,7 @@ a {
 }
 
 .testimonial-card .quote {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.5);
     font-style: italic;
     font-size: 0.95rem;
     line-height: 1.8;
@@ -533,13 +346,13 @@ a {
 
 .testimonial-card .client {
     color: #d4af37;
-    font-weight: 500;
+    font-weight: 400;
     margin-top: 12px;
     font-size: 0.85rem;
 }
 
 .testimonial-card .client span {
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.2);
     font-weight: 300;
     font-size: 0.8rem;
 }
@@ -561,15 +374,11 @@ a {
     color: #fff;
     margin-bottom: 10px;
     letter-spacing: 2px;
-    text-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
 }
 
 .hero-content h1 .gold-text {
     color: #d4af37;
     display: block;
-    text-shadow: 
-        0 0 30px rgba(212, 175, 55, 0.3),
-        0 0 60px rgba(212, 175, 55, 0.1);
 }
 
 .hero-content h1 .white-text {
@@ -577,15 +386,14 @@ a {
     display: block;
     font-size: 3.5rem;
     font-family: 'Poppins', sans-serif;
-    font-weight: 300;
+    font-weight: 200;
     letter-spacing: 5px;
     margin-top: 5px;
-    text-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
 }
 
 .hero-content p {
     font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.4);
     margin: 20px 0 35px;
     font-weight: 300;
     letter-spacing: 2px;
@@ -623,9 +431,9 @@ a {
 
 /* ===== FOOTER ===== */
 footer {
-    background: rgba(5, 5, 5, 0.95);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(16px) saturate(1.2);
+    -webkit-backdrop-filter: blur(16px) saturate(1.2);
     border-top: 1px solid rgba(255, 255, 255, 0.04);
     text-align: center;
     padding: 2rem;
@@ -634,7 +442,7 @@ footer {
 
 footer p {
     margin: 0;
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.2);
     font-size: 0.85rem;
     letter-spacing: 0.5px;
 }
