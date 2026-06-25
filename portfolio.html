@@ -195,7 +195,7 @@
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal-content">
             <button class="modal-close" id="modalClose">&times;</button>
-            <img class="main-image" id="modalImage" src="" alt="Design" />
+            <img class="main-image" id="modalImage" src="" alt="Nail design" />
             <h2 id="modalTitle"></h2>
             <span class="modal-badge" id="modalBadge"></span>
             <p id="modalDescription"></p>
@@ -527,7 +527,7 @@
                 const coverImage = d.images[0];
                 col.innerHTML = `
                     <img src="${getImagePath(coverImage)}" 
-                         alt="${d.title}" 
+                         alt="${d.title} - cover image" 
                          class="gallery-img" 
                          onclick="openModal(${d.id})"
                          style="cursor: pointer; height: 220px; width: 100%; object-fit: cover; border-radius: 12px; border: 2px solid rgba(212,175,55,0.3);"
@@ -550,7 +550,7 @@
             if (!design) return;
 
             modalImage.src = getImagePath(design.images[0]);
-            modalImage.alt = design.title;
+            modalImage.alt = design.title + ' - main design image';
             modalTitle.textContent = design.title;
             modalBadge.textContent = '✦ ' + design.badge;
             modalDescription.textContent = design.description;
@@ -560,11 +560,11 @@
             modalSkill.textContent = design.skill;
 
             modalGallery.innerHTML = '';
-            design.images.forEach(img => {
+            design.images.forEach((img, index) => {
                 const thumb = document.createElement('img');
                 thumb.className = 'thumb';
                 thumb.src = getImagePath(img);
-                thumb.alt = design.title;
+                thumb.alt = design.title + ' - image ' + (index + 1);
                 thumb.onclick = function() { updateMainImage(this.src); };
                 if (img === design.images[0]) thumb.classList.add('active');
                 modalGallery.appendChild(thumb);
@@ -574,7 +574,7 @@
             if (related.length > 0) {
                 relatedGrid.innerHTML = related.map(d => `
                     <div class="related-item" onclick="openModal(${d.id}); event.stopPropagation();">
-                        <img src="${getImagePath(d.images[0])}" alt="${d.title}" />
+                        <img src="${getImagePath(d.images[0])}" alt="${d.title} - related design" />
                         <p>${d.title.substring(0, 15)}${d.title.length > 15 ? '...' : ''}</p>
                     </div>
                 `).join('');
