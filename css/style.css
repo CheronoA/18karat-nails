@@ -1,6 +1,5 @@
 /* =============================================
-   18 KARAT NAILS - EDITORIAL BEAUTY BRAND ✨
-   Clean, elegant, high-end aesthetic
+   18 KARAT NAILS - MASTER STYLESHEET
    ============================================= */
 
 * {
@@ -12,8 +11,8 @@
 body {
     font-family: 'Poppins', sans-serif;
     background: 
-        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url('/18karat-nails/Images/pink-cheetah-bg.jpg') center center / cover fixed no-repeat;
+        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+        url('../Images/pink-cheetah-bg.jpg') center center / cover fixed no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -31,30 +30,31 @@ a {
     text-decoration: none;
 }
 
-/* ===== CLEAN GLASS EFFECT ===== */
+/* ===== GLASS EFFECT ===== */
 .glass {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(16px) saturate(1.2);
-    -webkit-backdrop-filter: blur(16px) saturate(1.2);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px) saturate(1.2);
+    -webkit-backdrop-filter: blur(20px) saturate(1.2);
+    border: 1px solid rgba(212, 175, 55, 0.12);
     border-radius: 20px;
     padding: 35px;
     transition: all 0.4s ease;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
 }
 
 .glass:hover {
-    border-color: rgba(212, 175, 55, 0.15);
-    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
+    border-color: rgba(212, 175, 55, 0.25);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.35);
 }
 
-/* ===== NAVBAR — CLEAN ===== */
+/* ===== NAVBAR ===== */
 .navbar {
-    background: rgba(10, 10, 10, 0.6);
-    backdrop-filter: blur(16px) saturate(1.2);
-    -webkit-backdrop-filter: blur(16px) saturate(1.2);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    background: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(20px) saturate(1.2);
+    -webkit-backdrop-filter: blur(20px) saturate(1.2);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.08);
     padding: 0.8rem 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
 }
 
 .navbar-brand {
@@ -63,10 +63,11 @@ a {
     font-size: 1.5rem;
     color: #d4af37 !important;
     letter-spacing: 1px;
+    text-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
 }
 
 .nav-link {
-    color: rgba(255, 255, 255, 0.6) !important;
+    color: rgba(255, 255, 255, 0.7) !important;
     font-weight: 400;
     transition: all 0.3s ease;
     font-size: 0.85rem;
@@ -76,36 +77,39 @@ a {
 
 .nav-link:hover {
     color: #d4af37 !important;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
 }
 
 .nav-link.active {
     color: #d4af37 !important;
     border-bottom: 1px solid #d4af37;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
 }
 
-/* ===== GOLD BUTTON — CLEAN ===== */
+/* ===== GOLD BUTTON ===== */
 .btn-gold {
-    background: #d4af37;
+    background: linear-gradient(135deg, #d4af37, #b8960c);
     color: #0a0a0a;
     padding: 14px 40px;
-    font-weight: 500;
+    font-weight: 600;
     text-decoration: none;
     border-radius: 50px;
     transition: all 0.3s ease;
     display: inline-block;
     border: none;
-    font-size: 0.85rem;
-    letter-spacing: 1.5px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
     text-transform: uppercase;
+    box-shadow: 0 4px 25px rgba(212, 175, 55, 0.25);
 }
 
 .btn-gold:hover {
-    background: #b8960c;
     transform: translateY(-2px);
+    box-shadow: 0 8px 40px rgba(212, 175, 55, 0.35);
     color: #0a0a0a;
 }
 
-/* ===== SECTION TITLE — EDITORIAL ===== */
+/* ===== SECTION TITLE ===== */
 .section-title {
     text-align: center;
     margin: 60px 0 40px;
@@ -113,20 +117,20 @@ a {
 
 .section-title h2 {
     font-size: 2.8rem;
-    color: #fff;
+    color: #d4af37;
     margin-bottom: 8px;
     letter-spacing: 2px;
-    font-weight: 300;
+    text-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
 }
 
 .section-title p {
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.5);
     font-size: 1rem;
     font-weight: 300;
     letter-spacing: 1px;
 }
 
-/* ===== CARDS — CLEAN & MINIMAL ===== */
+/* ===== CARDS ===== */
 .feature-card,
 .service-card,
 .about-card,
@@ -135,13 +139,14 @@ a {
 .contact-info,
 .policy-card,
 .faq-item {
-    background: rgba(10, 10, 10, 0.5);
+    background: rgba(10, 10, 10, 0.65);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-radius: 16px;
     padding: 28px;
-    border: 1px solid rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(212, 175, 55, 0.08);
     transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .feature-card:hover,
@@ -153,8 +158,9 @@ a {
 .policy-card:hover,
 .faq-item:hover {
     transform: translateY(-4px);
-    border-color: rgba(212, 175, 55, 0.1);
-    background: rgba(10, 10, 10, 0.7);
+    border-color: rgba(212, 175, 55, 0.2);
+    background: rgba(10, 10, 10, 0.8);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .feature-card .icon,
@@ -172,7 +178,6 @@ a {
 .contact-info h4 {
     color: #d4af37;
     margin-bottom: 10px;
-    font-weight: 400;
 }
 
 .feature-card p,
@@ -181,7 +186,7 @@ a {
 .info-card p,
 .policy-card p,
 .contact-info p {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.7);
     font-size: 0.9rem;
     line-height: 1.6;
 }
@@ -189,8 +194,9 @@ a {
 .service-card .price {
     font-size: 1.8rem;
     color: #d4af37;
-    font-weight: 500;
+    font-weight: 600;
     margin: 10px 0;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
 }
 
 /* ===== GALLERY ===== */
@@ -199,35 +205,36 @@ a {
     height: 280px;
     object-fit: cover;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     transition: all 0.4s ease;
     background-color: #0a0a0a;
 }
 
 .gallery-img:hover {
     transform: scale(1.02);
-    border-color: rgba(212, 175, 55, 0.1);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(212, 175, 55, 0.2);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
 }
 
 .gallery-item .caption {
     text-align: center;
     margin-top: 12px;
-    color: rgba(255, 255, 255, 0.5);
-    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
     font-size: 0.85rem;
     letter-spacing: 0.5px;
 }
 
 /* ===== FILTER BUTTONS ===== */
 .filter-btn {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.6);
     padding: 8px 22px;
     margin: 5px;
     border-radius: 50px;
-    font-weight: 300;
+    font-weight: 400;
     transition: all 0.3s ease;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
@@ -237,26 +244,29 @@ a {
 
 .filter-btn:hover,
 .filter-btn.active {
+    background: rgba(212, 175, 55, 0.12);
     border-color: #d4af37;
     color: #d4af37;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.05);
 }
 
 /* ===== FUN FACT ===== */
 .fun-fact {
     display: inline-block;
-    background: rgba(212, 175, 55, 0.06);
-    border: 1px solid rgba(212, 175, 55, 0.08);
+    background: rgba(212, 175, 55, 0.08);
+    border: 1px solid rgba(212, 175, 55, 0.12);
     border-radius: 50px;
     padding: 5px 18px;
     margin: 4px;
     font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.7);
 }
 
 /* ===== BOOKING FORM ===== */
 .form-control {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     color: #f0f0f0;
     padding: 14px;
     border-radius: 12px;
@@ -265,16 +275,17 @@ a {
 
 .form-control:focus {
     border-color: #d4af37;
-    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.06);
+    background: rgba(255, 255, 255, 0.06);
 }
 
 .form-control::placeholder {
-    color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.3);
 }
 
 .form-label {
-    color: rgba(255, 255, 255, 0.5);
-    font-weight: 300;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
     font-size: 0.85rem;
     letter-spacing: 0.5px;
 }
@@ -297,19 +308,19 @@ a {
 
 /* ===== FAQ ===== */
 .faq-item h4 {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.8);
     font-size: 1rem;
     margin: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .faq-item h4 .arrow {
     transition: transform 0.3s ease;
     font-size: 1rem;
-    color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.3);
 }
 
 .faq-item.open h4 .arrow {
@@ -317,11 +328,11 @@ a {
 }
 
 .faq-item p {
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.6);
     margin: 15px 0 0 0;
     display: none;
     padding-top: 15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
     line-height: 1.8;
     font-size: 0.9rem;
 }
@@ -338,7 +349,7 @@ a {
 }
 
 .testimonial-card .quote {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.7);
     font-style: italic;
     font-size: 0.95rem;
     line-height: 1.8;
@@ -346,13 +357,13 @@ a {
 
 .testimonial-card .client {
     color: #d4af37;
-    font-weight: 400;
+    font-weight: 500;
     margin-top: 12px;
     font-size: 0.85rem;
 }
 
 .testimonial-card .client span {
-    color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.3);
     font-weight: 300;
     font-size: 0.8rem;
 }
@@ -374,11 +385,13 @@ a {
     color: #fff;
     margin-bottom: 10px;
     letter-spacing: 2px;
+    text-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content h1 .gold-text {
     color: #d4af37;
     display: block;
+    text-shadow: 0 0 30px rgba(212, 175, 55, 0.25);
 }
 
 .hero-content h1 .white-text {
@@ -386,14 +399,15 @@ a {
     display: block;
     font-size: 3.5rem;
     font-family: 'Poppins', sans-serif;
-    font-weight: 200;
+    font-weight: 300;
     letter-spacing: 5px;
     margin-top: 5px;
+    text-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
 }
 
 .hero-content p {
     font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.6);
     margin: 20px 0 35px;
     font-weight: 300;
     letter-spacing: 2px;
@@ -431,18 +445,19 @@ a {
 
 /* ===== FOOTER ===== */
 footer {
-    background: rgba(10, 10, 10, 0.6);
-    backdrop-filter: blur(16px) saturate(1.2);
-    -webkit-backdrop-filter: blur(16px) saturate(1.2);
+    background: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(20px) saturate(1.2);
+    -webkit-backdrop-filter: blur(20px) saturate(1.2);
     border-top: 1px solid rgba(255, 255, 255, 0.04);
     text-align: center;
     padding: 2rem;
     margin-top: 4rem;
+    box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.2);
 }
 
 footer p {
     margin: 0;
-    color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.3);
     font-size: 0.85rem;
     letter-spacing: 0.5px;
 }
