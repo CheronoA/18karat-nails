@@ -462,6 +462,36 @@ footer p {
     letter-spacing: 0.5px;
 }
 
+/* =============================================
+   SMOOTH HOVER EFFECTS
+   ============================================= */
+
+.btn-gold {
+    transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+}
+
+.service-card,
+.feature-card,
+.testimonial-card,
+.about-card,
+.policy-card {
+    transition: all 0.3s ease;
+}
+
+.service-card:hover,
+.feature-card:hover,
+.testimonial-card:hover,
+.about-card:hover,
+.policy-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
     .section-title h2 {
