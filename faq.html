@@ -35,6 +35,17 @@
                     <li class="nav-item"><a class="nav-link active" href="faq.html">FAQ</a></li>
                     <li class="nav-item"><a class="nav-link" href="testimonials.html">Reviews</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <!-- ===== THEME TOGGLE ===== -->
+                    <li class="nav-item">
+                        <div class="theme-switch">
+                            <span class="theme-icon">☀️</span>
+                            <label class="theme-switch-label">
+                                <input type="checkbox" id="themeToggle">
+                                <span class="theme-slider"></span>
+                            </label>
+                            <span class="theme-icon">🌙</span>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -42,7 +53,7 @@
 
     <div class="container my-5">
         <div class="section-title">
-            <h2>💎 Frequently Asked Questions</h2>
+            <h2>Frequently Asked Questions</h2>
             <p>Everything you need to know before your appointment</p>
         </div>
 
@@ -50,33 +61,59 @@
             <div class="col-lg-8 mx-auto">
                 <div class="glass">
                     <div class="faq-item" onclick="toggleFAQ(this)">
-                        <h4>💅 How long do BIAB or Gel X extensions last? <span class="arrow">▼</span></h4>
+                        <h4>How long do BIAB or Gel X extensions last? <span class="arrow">▼</span></h4>
                         <p>With proper care, BIAB and Gel X extensions typically last 3-4 weeks. We recommend booking a fill appointment every 3 weeks to maintain the look and strength of your nails.</p>
                     </div>
 
                     <div class="faq-item" onclick="toggleFAQ(this)">
-                        <h4>💸 Is there a deposit required to book? <span class="arrow">▼</span></h4>
+                        <h4>Is there a deposit required to book? <span class="arrow">▼</span></h4>
                         <p>Yes, we require a KES 500 non-refundable deposit to secure your appointment. This amount goes toward your final bill.</p>
                     </div>
 
                     <div class="faq-item" onclick="toggleFAQ(this)">
-                        <h4>⏰ What happens if I'm late? <span class="arrow">▼</span></h4>
+                        <h4>What happens if I'm late? <span class="arrow">▼</span></h4>
                         <p>We kindly ask you to arrive on time. If you're more than 15 minutes late, we may need to shorten your service or reschedule. A KES 200 late fee may apply.</p>
                     </div>
 
                     <div class="faq-item" onclick="toggleFAQ(this)">
-                        <h4>🧼 How do I care for my nails after the appointment? <span class="arrow">▼</span></h4>
+                        <h4>How do I care for my nails after the appointment? <span class="arrow">▼</span></h4>
                         <p>We recommend applying cuticle oil daily, wearing gloves for household chores, and avoiding using your nails as tools. Your nail tech will give you detailed aftercare instructions.</p>
                     </div>
 
                     <div class="faq-item" onclick="toggleFAQ(this)">
-                        <h4>🎨 Can I bring my own design ideas? <span class="arrow">▼</span></h4>
-                        <p>Absolutely! We love when clients bring inspiration photos. You can DM us on Instagram @18karatnails or bring a picture to your appointment.</p>
+                        <h4>Can I bring my own design ideas? <span class="arrow">▼</span></h4>
+                        <p>Absolutely! We love when clients bring inspiration photos. You can DM us on Instagram @18karat_nails or bring a picture to your appointment.</p>
                     </div>
 
                     <div class="faq-item" onclick="toggleFAQ(this)">
-                        <h4>🚫 What if I need to cancel? <span class="arrow">▼</span></h4>
+                        <h4>What if I need to cancel? <span class="arrow">▼</span></h4>
                         <p>Cancellations made less than 24 hours in advance will incur a KES 500 fee. Deposits are non-refundable in all cases.</p>
+                    </div>
+
+                    <!-- ===== NEW FAQ QUESTIONS ===== -->
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <h4>Do you offer mobile nail services? <span class="arrow">▼</span></h4>
+                        <p>Yes! We offer mobile nail services within Nairobi. A transport fee may apply depending on your location.</p>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <h4>What payment methods do you accept? <span class="arrow">▼</span></h4>
+                        <p>We accept M-Pesa, cash, and bank transfers. Payment details will be shared upon booking confirmation.</p>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <h4>Can I bring my own nail polish? <span class="arrow">▼</span></h4>
+                        <p>Of course! You're welcome to bring your own polish if you have a specific shade in mind.</p>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <h4>Do you offer group bookings? <span class="arrow">▼</span></h4>
+                        <p>Yes! We accommodate group bookings for parties, bridal showers, and events. Please contact us in advance to arrange.</p>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <h4>How far in advance should I book? <span class="arrow">▼</span></h4>
+                        <p>We recommend booking at least 2-3 days in advance to secure your preferred time slot. Same-day bookings may be available upon request.</p>
                     </div>
                 </div>
 
@@ -93,10 +130,9 @@
                 <div class="col-md-4">
                     <h5 style="color: #d4af37; font-family: 'Elsie', serif; font-size: 1.3rem;">18 Karat Nails</h5>
                     <p style="color: rgba(255,255,255,0.5); font-size: 0.85rem;">Luxury nail artistry in Nairobi. Premium BIAB, Gel X, and custom nail art.</p>
-                    <p style="color: rgba(255,255,255,0.3); font-size: 0.8rem;">📍 Lavington Square Mall, 3rd Floor</p>
-                    <p style="color: rgba(255,255,255,0.3); font-size: 0.8rem;">📞 0738336465</p>
+                    <p style="color: rgba(255,255,255,0.3); font-size: 0.8rem;">Lavington Square Mall, 3rd Floor</p>
+                    <p style="color: rgba(255,255,255,0.3); font-size: 0.8rem;">0738336465</p>
                 </div>
-
                 <div class="col-md-4">
                     <h6 style="color: #d4af37; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Quick Links</h6>
                     <ul style="list-style: none; padding: 0;">
@@ -106,7 +142,6 @@
                         <li><a href="contact.html" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.85rem;">Contact</a></li>
                     </ul>
                 </div>
-
                 <div class="col-md-4">
                     <h6 style="color: #d4af37; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Be the first to know</h6>
                     <p style="color: rgba(255,255,255,0.4); font-size: 0.8rem;">Get updates on new collections and exclusive offers.</p>
@@ -117,19 +152,20 @@
                     <p style="color: rgba(255,255,255,0.2); font-size: 0.65rem; margin-top: 8px;">By subscribing, you agree to our Privacy Policy.</p>
                 </div>
             </div>
-
             <div style="border-top: 1px solid rgba(255,255,255,0.05); margin-top: 20px; padding-top: 15px; text-align: center;">
-                <p style="color: rgba(255,255,255,0.2); font-size: 0.75rem; margin: 0;">© 2026 18 Karat Nails | Powered by 💅</p>
+                <p style="color: rgba(255,255,255,0.2); font-size: 0.75rem; margin: 0;">© 2026 18 Karat Nails</p>
                 <p style="color: rgba(255,255,255,0.15); font-size: 0.65rem; margin-top: 4px;">Follow us: 
-                    <a href="#" style="color: rgba(255,255,255,0.3); text-decoration: none;">Instagram</a> • 
-                    <a href="#" style="color: rgba(255,255,255,0.3); text-decoration: none;">TikTok</a> • 
-                    <a href="#" style="color: rgba(255,255,255,0.3); text-decoration: none;">Facebook</a>
+                    <a href="https://instagram.com/18karat_nails" target="_blank" style="color: rgba(255,255,255,0.3); text-decoration: none;">Instagram</a> • 
+                    <a href="https://tiktok.com/@18karat_nails" target="_blank" style="color: rgba(255,255,255,0.3); text-decoration: none;">TikTok</a> • 
+                    <a href="mailto:18karatnails@gmail.com" style="color: rgba(255,255,255,0.3); text-decoration: none;">Email</a>
                 </p>
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <script src="js/theme.js">
     </script>
 
     <script>

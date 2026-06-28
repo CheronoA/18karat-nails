@@ -1,5 +1,6 @@
 /* =============================================
    18 KARAT NAILS - MASTER STYLESHEET
+   Light Mode = Soft Cheetah (not plain white)
    ============================================= */
 
 * {
@@ -18,6 +19,7 @@ body {
     background-attachment: fixed;
     color: #f0f0f0;
     min-height: 100vh;
+    transition: background 0.4s ease, color 0.3s ease;
 }
 
 h1, h2, h3 {
@@ -55,6 +57,7 @@ a {
     border-bottom: 1px solid rgba(212, 175, 55, 0.08);
     padding: 0.8rem 0;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
 }
 
 .navbar-brand {
@@ -64,6 +67,7 @@ a {
     color: #d4af37 !important;
     letter-spacing: 1px;
     text-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
+    transition: color 0.3s ease;
 }
 
 .nav-link {
@@ -453,6 +457,7 @@ footer {
     padding: 2rem;
     margin-top: 4rem;
     box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
 }
 
 footer p {
@@ -492,6 +497,285 @@ footer p {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
+/* =============================================
+   THEME TOGGLE SWITCH
+   ============================================= */
+
+.theme-switch {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 15px;
+}
+
+.theme-switch-label {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.theme-switch-label input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.theme-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 26px;
+    transition: 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.theme-slider::before {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background: #fff;
+    border-radius: 50%;
+    transition: 0.3s ease;
+}
+
+.theme-switch-label input:checked + .theme-slider {
+    background: #d4af37;
+}
+
+.theme-switch-label input:checked + .theme-slider::before {
+    transform: translateX(24px);
+}
+
+.theme-icon {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* =============================================
+   LIGHT MODE — SOFT CHEETAH (not plain white)
+   ============================================= */
+
+body.light-mode {
+    background: 
+        linear-gradient(rgba(255, 248, 240, 0.75), rgba(255, 248, 240, 0.75)),
+        url('../Images/pink-cheetah-bg.jpg') center center / cover fixed no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #1a1412;
+}
+
+body.light-mode .navbar {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+body.light-mode .navbar-brand {
+    color: #1a1412 !important;
+    text-shadow: none;
+}
+
+body.light-mode .nav-link {
+    color: rgba(26, 20, 18, 0.7) !important;
+}
+
+body.light-mode .nav-link:hover {
+    color: #d4af37 !important;
+}
+
+body.light-mode .nav-link.active {
+    color: #d4af37 !important;
+    border-bottom-color: #d4af37;
+}
+
+body.light-mode .glass {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+body.light-mode .glass:hover {
+    border-color: rgba(212, 175, 55, 0.2);
+}
+
+body.light-mode .section-title h2 {
+    color: #1a1412;
+    text-shadow: none;
+}
+
+body.light-mode .section-title p {
+    color: rgba(26, 20, 18, 0.5);
+}
+
+body.light-mode .feature-card,
+body.light-mode .service-card,
+body.light-mode .about-card,
+body.light-mode .info-card,
+body.light-mode .testimonial-card,
+body.light-mode .contact-info,
+body.light-mode .policy-card,
+body.light-mode .faq-item {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+body.light-mode .feature-card:hover,
+body.light-mode .service-card:hover,
+body.light-mode .about-card:hover,
+body.light-mode .info-card:hover,
+body.light-mode .testimonial-card:hover,
+body.light-mode .contact-info:hover,
+body.light-mode .policy-card:hover,
+body.light-mode .faq-item:hover {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .feature-card p,
+body.light-mode .service-card .desc,
+body.light-mode .about-card p,
+body.light-mode .info-card p,
+body.light-mode .policy-card p,
+body.light-mode .contact-info p {
+    color: rgba(26, 20, 18, 0.7);
+}
+
+body.light-mode .service-card .price {
+    color: #d4af37;
+    text-shadow: none;
+}
+
+body.light-mode .hero-content h1 {
+    color: #1a1412;
+    text-shadow: none;
+}
+
+body.light-mode .hero-content h1 .white-text {
+    color: #1a1412;
+}
+
+body.light-mode .hero-content p {
+    color: rgba(26, 20, 18, 0.6);
+}
+
+body.light-mode footer {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+body.light-mode footer p {
+    color: rgba(26, 20, 18, 0.3);
+}
+
+body.light-mode footer a {
+    color: rgba(26, 20, 18, 0.4) !important;
+}
+
+body.light-mode footer a:hover {
+    color: #d4af37 !important;
+}
+
+body.light-mode .glass-table-wrapper {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+body.light-mode .price-table td {
+    color: rgba(26, 20, 18, 0.8);
+}
+
+body.light-mode .price-table .service-name {
+    color: #1a1412;
+}
+
+body.light-mode .price-table tr:hover td {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+body.light-mode .form-control {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    color: #1a1412;
+}
+
+body.light-mode .form-control::placeholder {
+    color: rgba(26, 20, 18, 0.3);
+}
+
+body.light-mode .form-control:focus {
+    background: rgba(255, 255, 255, 0.7);
+    border-color: #d4af37;
+}
+
+body.light-mode .form-label {
+    color: rgba(26, 20, 18, 0.7);
+}
+
+body.light-mode .faq-item h4 {
+    color: rgba(26, 20, 18, 0.8);
+}
+
+body.light-mode .faq-item p {
+    color: rgba(26, 20, 18, 0.6);
+}
+
+body.light-mode .testimonial-card .quote {
+    color: rgba(26, 20, 18, 0.7);
+}
+
+body.light-mode .testimonial-card .client span {
+    color: rgba(26, 20, 18, 0.3);
+}
+
+body.light-mode .fun-fact {
+    background: rgba(212, 175, 55, 0.06);
+    border: 1px solid rgba(212, 175, 55, 0.08);
+    color: rgba(26, 20, 18, 0.6);
+}
+
+body.light-mode .filter-btn {
+    color: rgba(26, 20, 18, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+body.light-mode .filter-btn:hover,
+body.light-mode .filter-btn.active {
+    background: rgba(212, 175, 55, 0.1);
+    border-color: #d4af37;
+    color: #d4af37;
+}
+
+body.light-mode .theme-slider {
+    background: rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .theme-slider::before {
+    background: #1a1412;
+}
+
+body.light-mode .theme-icon {
+    color: rgba(26, 20, 18, 0.4);
+}
+
+body.light-mode .error-message {
+    color: #d32f2f;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
     .section-title h2 {
@@ -515,6 +799,11 @@ footer p {
     }
     .gallery-img {
         height: 200px;
+    }
+    .theme-switch {
+        margin-left: 0;
+        margin-top: 10px;
+        justify-content: center;
     }
 }
 
@@ -541,5 +830,16 @@ footer p {
     .filter-btn {
         padding: 5px 14px;
         font-size: 0.7rem;
+    }
+    .theme-switch-label {
+        width: 40px;
+        height: 22px;
+    }
+    .theme-slider::before {
+        height: 14px;
+        width: 14px;
+    }
+    .theme-switch-label input:checked + .theme-slider::before {
+        transform: translateX(18px);
     }
 }

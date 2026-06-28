@@ -16,6 +16,98 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .glass-table-wrapper {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.08);
+            border-radius: 20px;
+            padding: 30px 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .glass-table-wrapper:hover {
+            border-color: rgba(212, 175, 55, 0.15);
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
+        }
+
+        .price-table {
+            background: transparent !important;
+            margin-bottom: 0;
+        }
+
+        .price-table th {
+            color: #d4af37;
+            font-weight: 600;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.15);
+            padding: 12px 8px;
+            letter-spacing: 0.5px;
+            background: transparent !important;
+        }
+
+        .price-table td {
+            color: rgba(255, 255, 255, 0.85);
+            padding: 12px 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            transition: background 0.2s ease;
+            background: transparent !important;
+        }
+
+        .price-table tr {
+            background: transparent !important;
+        }
+
+        .price-table tr:hover td {
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .price-table .service-name {
+            color: #fff;
+            font-weight: 400;
+        }
+
+        .price-table .price {
+            color: #d4af37;
+            font-weight: 500;
+            text-align: right;
+        }
+
+        .category-title {
+            color: #d4af37;
+            font-family: 'Elsie', serif;
+            font-size: 1.8rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.1);
+            letter-spacing: 1px;
+        }
+
+        .service-note {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .glass-table-wrapper {
+                padding: 20px 15px;
+            }
+            .price-table th,
+            .price-table td {
+                padding: 8px 4px;
+                font-size: 0.85rem;
+            }
+            .category-title {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -35,6 +127,17 @@
                     <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
                     <li class="nav-item"><a class="nav-link" href="testimonials.html">Reviews</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <!-- ===== THEME TOGGLE ===== -->
+                    <li class="nav-item">
+                        <div class="theme-switch">
+                            <span class="theme-icon">☀️</span>
+                            <label class="theme-switch-label">
+                                <input type="checkbox" id="themeToggle">
+                                <span class="theme-slider"></span>
+                            </label>
+                            <span class="theme-icon">🌙</span>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -42,77 +145,117 @@
 
     <div class="container my-5">
         <div class="section-title">
-            <h2>💎 Our Services</h2>
+            <h2>Our Services</h2>
             <p>Luxury nail services at affordable prices. Premium products, exceptional quality.</p>
         </div>
 
-        <div class="row">
-            <div class="col-md-4 mb-4">
-                <div class="service-card">
-                    <div class="icon">💎</div>
-                    <h3>BIAB</h3>
-                    <p class="desc">Natural-looking nail enhancement. Strengthens and protects your natural nails.</p>
-                    <p class="price">KES 3,500</p>
-                    <small class="desc">Includes cuticle care + shaping</small><br><br>
-                    <a href="booking.html" class="btn-gold" style="padding: 8px 25px; font-size: 0.9rem;">Book Now</a>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="service-card">
-                    <div class="icon">✨</div>
-                    <h3>Gel X Extensions</h3>
-                    <p class="desc">Lightweight, flexible gel extensions that look and feel natural.</p>
-                    <p class="price">KES 4,500</p>
-                    <small class="desc">Includes full set + design of choice</small><br><br>
-                    <a href="booking.html" class="btn-gold" style="padding: 8px 25px; font-size: 0.9rem;">Book Now</a>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="service-card">
-                    <div class="icon">🎨</div>
-                    <h3>Nail Art</h3>
-                    <p class="desc">Custom nail art including chrome, French tips, ombre, floral, and 3D.</p>
-                    <p class="price">KES 300 - 800</p>
-                    <small class="desc">Price depends on complexity</small><br><br>
-                    <a href="booking.html" class="btn-gold" style="padding: 8px 25px; font-size: 0.9rem;">Book Now</a>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="service-card">
-                    <div class="icon">🦶</div>
-                    <h3>Luxury Pedicure</h3>
-                    <p class="desc">Full spa pedicure with foot soak, scrub, massage, and polish.</p>
-                    <p class="price">KES 2,500</p>
-                    <small class="desc">Includes paraffin wax treatment</small><br><br>
-                    <a href="booking.html" class="btn-gold" style="padding: 8px 25px; font-size: 0.9rem;">Book Now</a>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="service-card">
-                    <div class="icon">💅</div>
-                    <h3>Gel Manicure</h3>
-                    <p class="desc">Long-lasting gel polish that stays shiny for 2+ weeks.</p>
-                    <p class="price">KES 1,800</p>
-                    <small class="desc">Includes cuticle care + hand massage</small><br><br>
-                    <a href="booking.html" class="btn-gold" style="padding: 8px 25px; font-size: 0.9rem;">Book Now</a>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="service-card">
-                    <div class="icon">🧼</div>
-                    <h3>Nail Removal</h3>
-                    <p class="desc">Safe removal of gel, acrylic, or BIAB extensions without damage.</p>
-                    <p class="price">KES 1,000</p>
-                    <small class="desc">Includes nail conditioning treatment</small><br><br>
-                    <a href="booking.html" class="btn-gold" style="padding: 8px 25px; font-size: 0.9rem;">Book Now</a>
-                </div>
-            </div>
+        <!-- Manicures -->
+        <div class="glass-table-wrapper">
+            <h3 class="category-title">Manicures</h3>
+            <table class="table price-table">
+                <thead>
+                    <tr><th>Service</th><th style="text-align: right;">Price (KES)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td class="service-name">Plain Manicure</td><td class="price">1,000</td></tr>
+                    <tr><td class="service-name">Manicure + Gel Polish</td><td class="price">2,000</td></tr>
+                    <tr><td class="service-name">French Manicure</td><td class="price">1,500</td></tr>
+                    <tr><td class="service-name">Gel Manicure</td><td class="price">2,300</td></tr>
+                    <tr><td class="service-name">Signature Spa Manicure</td><td class="price">2,000</td></tr>
+                </tbody>
+            </table>
         </div>
+
+        <!-- Pedicures -->
+        <div class="glass-table-wrapper">
+            <h3 class="category-title">Pedicures</h3>
+            <table class="table price-table">
+                <thead>
+                    <tr><th>Service</th><th style="text-align: right;">Price (KES)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td class="service-name">Plain Pedicure</td><td class="price">1,500</td></tr>
+                    <tr><td class="service-name">Pedicure + Gel Polish</td><td class="price">2,500</td></tr>
+                    <tr><td class="service-name">French Pedicure</td><td class="price">1,800</td></tr>
+                    <tr><td class="service-name">Gel Pedicure</td><td class="price">3,000</td></tr>
+                    <tr><td class="service-name">Signature Spa Pedicure</td><td class="price">2,500</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Extensions -->
+        <div class="glass-table-wrapper">
+            <h3 class="category-title">Extensions & Enhancements</h3>
+            <table class="table price-table">
+                <thead>
+                    <tr><th>Service</th><th style="text-align: right;">Price (KES)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td class="service-name">Tips + Gel</td><td class="price">2,500</td></tr>
+                    <tr><td class="service-name">Tips + Acrylic</td><td class="price">3,000</td></tr>
+                    <tr><td class="service-name">Gel with Tip</td><td class="price">3,500</td></tr>
+                    <tr><td class="service-name">Acrylic with Tip</td><td class="price">3,500</td></tr>
+                    <tr><td class="service-name">BIAB (Builder Gel)</td><td class="price">3,500</td></tr>
+                    <tr><td class="service-name">Gel X Extensions</td><td class="price">4,500</td></tr>
+                    <tr><td class="service-name">Hybrid Gel</td><td class="price">3,300</td></tr>
+                    <tr><td class="service-name">Hard Gel</td><td class="price">2,600</td></tr>
+                    <tr><td class="service-name">Overlay on Natural Nails</td><td class="price">2,500</td></tr>
+                    <tr><td class="service-name">Refill / Fill</td><td class="price">2,500</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Sculpting -->
+        <div class="glass-table-wrapper">
+            <h3 class="category-title">Sculpting</h3>
+            <table class="table price-table">
+                <thead>
+                    <tr><th>Service</th><th style="text-align: right;">Price (KES)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td class="service-name">Gel Sculpting</td><td class="price">7,000</td></tr>
+                    <tr><td class="service-name">Acrylic Sculpting</td><td class="price">7,000</td></tr>
+                    <tr><td class="service-name">Acrylic + Gel Sculpting</td><td class="price">4,500</td></tr>
+                    <tr><td class="service-name">Acrylic Ombre</td><td class="price">4,500</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Nail Art -->
+        <div class="glass-table-wrapper">
+            <h3 class="category-title">Nail Art</h3>
+            <table class="table price-table">
+                <thead>
+                    <tr><th>Service</th><th style="text-align: right;">Price (KES)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td class="service-name">Simple Design (per nail)</td><td class="price">200</td></tr>
+                    <tr><td class="service-name">Medium Design (per nail)</td><td class="price">400</td></tr>
+                    <tr><td class="service-name">Intricate Design (per nail)</td><td class="price">600</td></tr>
+                    <tr><td class="service-name">Nail Art (full set)</td><td class="price">1,500 - 3,000</td></tr>
+                    <tr><td class="service-name">Chrome / Ombre (full set)</td><td class="price">+ 500</td></tr>
+                    <tr><td class="service-name">3D Elements / Charms (per nail)</td><td class="price">+ 300</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Removal -->
+        <div class="glass-table-wrapper">
+            <h3 class="category-title">Removal & Repairs</h3>
+            <table class="table price-table">
+                <thead>
+                    <tr><th>Service</th><th style="text-align: right;">Price (KES)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td class="service-name">Gel Soak Off</td><td class="price">500</td></tr>
+                    <tr><td class="service-name">Acrylic / Hard Gel Soak Off</td><td class="price">1,000</td></tr>
+                    <tr><td class="service-name">Soak Off + Manicure</td><td class="price">2,000</td></tr>
+                    <tr><td class="service-name">Repair (per nail)</td><td class="price">400</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p class="service-note">Prices are subject to change based on design complexity. Add-ons available upon request.</p>
 
         <div class="text-center mt-4">
             <a href="booking.html" class="btn-gold" style="padding: 12px 35px; font-size: 1rem;">Book Your Appointment →</a>
@@ -125,10 +268,9 @@
                 <div class="col-md-4">
                     <h5 style="color: #d4af37; font-family: 'Elsie', serif; font-size: 1.3rem;">18 Karat Nails</h5>
                     <p style="color: rgba(255,255,255,0.5); font-size: 0.85rem;">Luxury nail artistry in Nairobi. Premium BIAB, Gel X, and custom nail art.</p>
-                    <p style="color: rgba(255,255,255,0.3); font-size: 0.8rem;">📍 Lavington Square Mall, 3rd Floor</p>
-                    <p style="color: rgba(255,255,255,0.3); font-size: 0.8rem;">📞 0738336465</p>
+                    <p style="color: rgba(255,255,255,0.3); font-size: 0.8rem;">Lavington Square Mall, 3rd Floor</p>
+                    <p style="color: rgba(255,255,255,0.3); font-size: 0.8rem;">0738336465</p>
                 </div>
-
                 <div class="col-md-4">
                     <h6 style="color: #d4af37; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Quick Links</h6>
                     <ul style="list-style: none; padding: 0;">
@@ -138,7 +280,6 @@
                         <li><a href="contact.html" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.85rem;">Contact</a></li>
                     </ul>
                 </div>
-
                 <div class="col-md-4">
                     <h6 style="color: #d4af37; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Be the first to know</h6>
                     <p style="color: rgba(255,255,255,0.4); font-size: 0.8rem;">Get updates on new collections and exclusive offers.</p>
@@ -149,13 +290,12 @@
                     <p style="color: rgba(255,255,255,0.2); font-size: 0.65rem; margin-top: 8px;">By subscribing, you agree to our Privacy Policy.</p>
                 </div>
             </div>
-
             <div style="border-top: 1px solid rgba(255,255,255,0.05); margin-top: 20px; padding-top: 15px; text-align: center;">
-                <p style="color: rgba(255,255,255,0.2); font-size: 0.75rem; margin: 0;">© 2026 18 Karat Nails | Powered by 💅</p>
+                <p style="color: rgba(255,255,255,0.2); font-size: 0.75rem; margin: 0;">© 2026 18 Karat Nails</p>
                 <p style="color: rgba(255,255,255,0.15); font-size: 0.65rem; margin-top: 4px;">Follow us: 
-                    <a href="#" style="color: rgba(255,255,255,0.3); text-decoration: none;">Instagram</a> • 
-                    <a href="#" style="color: rgba(255,255,255,0.3); text-decoration: none;">TikTok</a> • 
-                    <a href="#" style="color: rgba(255,255,255,0.3); text-decoration: none;">Facebook</a>
+                    <a href="https://instagram.com/18karat_nails" target="_blank" style="color: rgba(255,255,255,0.3); text-decoration: none;">Instagram</a> • 
+                    <a href="https://tiktok.com/@18karat_nails" target="_blank" style="color: rgba(255,255,255,0.3); text-decoration: none;">TikTok</a> • 
+                    <a href="mailto:18karatnails@gmail.com" style="color: rgba(255,255,255,0.3); text-decoration: none;">Email</a>
                 </p>
             </div>
         </div>
@@ -163,10 +303,12 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
     </script>
+    <script src="js/theme.js">
+    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const items = document.querySelectorAll('.service-card');
+            const items = document.querySelectorAll('.glass-table-wrapper');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
