@@ -257,12 +257,27 @@
             <h2>Our Portfolio</h2>
             <p>Browse through some of our recent work. Each design is custom-made for our clients.</p>
         </div>
+
+        <!-- FILTER BUTTONS -->
+        <div class="text-center mb-4" id="filterButtons">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="chrome">Chrome</button>
+            <button class="filter-btn" data-category="french">French Tip</button>
+            <button class="filter-btn" data-category="ombre">Ombre</button>
+            <button class="filter-btn" data-category="glitter">Glitter</button>
+            <button class="filter-btn" data-category="matte">Matte</button>
+            <button class="filter-btn" data-category="3dart">3D Art</button>
+        </div>
+
+        <!-- GALLERY GRID -->
         <div class="row" id="galleryGrid"></div>
+
         <div class="text-center mt-4">
             <a href="booking.html" class="btn-gold">Book Your Appointment →</a>
         </div>
     </div>
 
+    <!-- MODAL -->
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal-content">
             <button class="modal-close" id="modalClose">&times;</button>
@@ -325,12 +340,74 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
     </script>
+    <script src="js/gallery.js">
+    </script>
     <script src="js/theme.js">
     </script>
 
+    <!-- MODAL SCRIPTS -->
     <script>
-        const designs = [ /* ... your designs array ... */ ];
-        // (keep your existing portfolio JavaScript here)
+        function openModal(id) {
+            const design = designs.find(d => d.id === id);
+            if (!design) return;
+
+            modalImage.src = getImagePath(design.image);
+            modalImage.alt = design.title + ' - main design image';
+            modalTitle.textContent = design.title;
+            modalBadge.textContent = '✦ ' + design.badge;
+            modalDescription.textContent = design.description;
+            modalCategory.textContent = design.category.charAt(0).toUpperCase() + design.category.slice(1);
+            modalPrice.textContent = design.price;
+            modalDuration.textContent = design.duration;
+            modalSkill.textContent = design.skill;
+
+            modalGallery.innerHTML = '';
+            design.images.forEach((img, index) => {
+                const thumb = document.createElement('img');
+                thumb.className = 'thumb';
+                thumb.src = getImagePath(img);
+                thumb.alt = design.title + ' - image ' + (index + 1);
+                thumb.onclick = function() { updateMainImage(this.src); };
+                if (img === design.images[0]) thumb.classList.add('active');
+                modalGallery.appendChild(thumb);
+            });
+
+            const related = designs.filter(d => d.category === design.category && d.id !== design.id);
+            if (related.length > 0) {
+                relatedGrid.innerHTML = related.map(d => `
+                    <div class="related-item" onclick="openModal(${d.id}); event.stopPropagation();">
+                        <img src="${getImagePath(d.images[0])}" alt="${d.title} - related design" />
+                        <p>${d.title.substring(0, 15)}${d.title.length > 15 ? '...' : ''}</p>
+                    </div>
+                `).join('');
+                document.getElementById('modalRelated').style.display = 'block';
+            } else {
+                document.getElementById('modalRelated').style.display = 'none';
+            }
+
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function updateMainImage(src) {
+            modalImage.src = src;
+            document.querySelectorAll('.modal-gallery .thumb').forEach(thumb => {
+                thumb.classList.toggle('active', thumb.src === src);
+            });
+        }
+
+        modalClose.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
     </script>
 
 </body>
